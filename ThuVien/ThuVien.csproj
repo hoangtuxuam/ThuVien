@@ -54,6 +54,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BaoCao\BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BaoCao\BaoCao.Designer.cs">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BaoCao\DocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BaoCao\DocGia.Designer.cs">
+      <DependentUpon>DocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BaoCao\DocGiaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BaoCao\DocGiaa.Designer.cs">
+      <DependentUpon>DocGiaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BaoCao\Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BaoCao\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\BaoCao\MainBaoCao.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +118,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaoCao\BaoCao.resx">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaoCao\DocGia.resx">
+      <DependentUpon>DocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaoCao\DocGiaa.resx">
+      <DependentUpon>DocGiaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaoCao\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaoCao\MainBaoCao.resx">
       <DependentUpon>MainBaoCao.cs</DependentUpon>
