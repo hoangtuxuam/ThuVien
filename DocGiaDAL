@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DTO;
+using System.Data.SqlClient;
+using System.Data;
+
+
+namespace DAL
+{
+    class DocGiaDAL
+    {
+        public DocGia docGia = new DocGia();
+        ConnectDB dbcnn = new ConnectDB();
+        public DataTable getTableDocGia()
+        {
+            String sql = @"SELECT [MaDG]
+                        ,[HoTenDG]
+                        ,[EmailDG]
+                        ,[GioiTinhDG]
+                        ,[NgaySinhDG]
+                        ,[DiaChiDG]
+                        ,[DienThoaiDG]
+                        ,[NgayLamThe]
+                        ,[NgayHetHan]
+                        ,[HoatDong]
+                    FROM[ThuVien].[dbo].[DocGia]";
+            return dbcnn.getdata(sql);
+         }
+
+        public List<DocGia> getDocGia()
+           {
+              String sql = @"SELECT [MaDG]
+                        ,[HoTenDG]
+                        ,[EmailDG]
+                        ,[GioiTinhDG]
+                        ,[NgaySinhDG]
+                        ,[DiaChiDG]
+                        ,[DienThoaiDG]
+                        ,[NgayLamThe]
+                        ,[NgayHetHan]
+                        ,[HoatDong]
+                    FROM[ThuVien].[dbo].[DocGia]";
+            DataTable table = dbcnn.getdata(sql);
+            List<DocGia> listDocGia = new List<DocGia>();
+          }
+        foreach (DataRow row in table.Rows)
+            {
+                DocGia dg = new DocGia();
+                dg.MaNV = (int) row["MaDG"];
+                dg.HoTenNV = (String)row["HoTenDG"];
+                dg.GioiTinhNV = (String)row["EmailDG"];
+                dg.NgaySinhNV = (Boolean)row["GioiTinhDG"];
+                dg.DienThoaiNV = (DateTime)row["NgaySinhDG"];
+                dg.DiaChiNV = (String)row["DiaChiNV"];
+                dg.EmailNV = (String)row["DienThoaiDG"];
+                dg.NgayVaoLam = (DateTime)row["NgayLamThe"];
+                dg.MatKhau = (DateTime)row["NgayHetHan"];
+                dg.QuyenHan = (String)row["HoatDong"];
+                listDocGia.Add(dg);
+            }
+        return listDocGia;
+
+        }
+        
+        public DocGia chekLogin(String username,String password)
+        {
+            String sql = @"SELECT [MaDG]
+                        ,[HoTenDG]
+                        ,[EmailDG]
+                        ,[GioiTinhDG]
+                        ,[NgaySinhDG]
+                        ,[DiaChiDG]
+                        ,[DienThoaiDG]
+                        ,[NgayLamThe]
+                        ,[NgayHetHan]
+                        ,[HoatDong]
+                    FROM[ThuVien].[dbo].[DocGia]
+                    WHERE [EmailDG] = "+username+
+                    "AND [MatKhau] = "+password;
+            DocGia dg =(DocGia) dbcnn.get1Row(sql);
+            return dg;
+        }
+
+        public bool InsertDocGia(DocGia dg)
+        {
+            String sql = @"INSERT INTO [DocGia] ([HoTenDG],[GioiTinhDG],[NgaySinhDG],[DiaChiDG],[DienThoaiDG],[NgayLamThe],[NgayVaoLam],[NgayHetHan],[HoatDong]) VALUES ('" + dg.HoTenNV + "','" +  dg.EmailNV + "','" + Convert.ToInt16(dg.GioiTinhNV) + "','" + dg.NgaySinhNV + "','" + dg.DiaChiNV + "','" + dg.DienThoaiNV + "','" + dg.NgayLamThe + "','" + dg.NgayHetHan + "','"+ dg.HoatDong"')";
+            return (dbcnn.ThucThiSQL(sql));
+        }
+
+}
+}
