@@ -84,17 +84,41 @@
     <Compile Include="GUI\BaoCao\MainBaoCao.Designer.cs">
       <DependentUpon>MainBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\DocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\DocGia.Designer.cs">
+      <DependentUpon>DocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\MainQuanLy.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\MainQuanLy.Designer.cs">
       <DependentUpon>MainQuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\NXB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\NXB.Designer.cs">
+      <DependentUpon>NXB.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.Designer.cs">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\TheLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\TheLoai.Designer.cs">
+      <DependentUpon>TheLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\QuanLyMuonTra\MainMuonTra.cs">
       <SubType>UserControl</SubType>
@@ -134,11 +158,23 @@
     <EmbeddedResource Include="GUI\BaoCao\MainBaoCao.resx">
       <DependentUpon>MainBaoCao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\DocGia.resx">
+      <DependentUpon>DocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\MainQuanLy.resx">
       <DependentUpon>MainQuanLy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\NXB.resx">
+      <DependentUpon>NXB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\TheLoai.resx">
+      <DependentUpon>TheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyMuonTra\MainMuonTra.resx">
       <DependentUpon>MainMuonTra.cs</DependentUpon>
