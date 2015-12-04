@@ -12,7 +12,7 @@ namespace DAL
 {
     class ConnectDB
     {
-        private SqlConnection conn;
+        public SqlConnection conn { get; set; }
         private SqlDataAdapter da;
         private DataTable dt;
         private SqlDataReader reader;
@@ -24,7 +24,7 @@ namespace DAL
         }
 
         //Khai bao chuoi ket noi CSDL
-        private string strConnect = @"Data Source=DESKTOP-D3QKDSP;Initial Catalog=ThuVien;Integrated Security=True";
+        private string strConnect = @"Data Source=DESKTOP-D3QKDSP;Initial Catalog=TuDien;Integrated Security=True";
         //Kết nối
         public void Connect()
         {
@@ -36,12 +36,13 @@ namespace DAL
             catch (Exception ex)
             {
                 MessageBox.Show("Không thể kết nối tới Cơ Sở Dữ Liệu !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Environment.Exit(0);
             }
         }
         public void Close()
         {
-            if (conn != null) { conn.Close(); }
-            if (reader != null) { reader.Close(); }
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
         }
 
 
@@ -91,12 +92,15 @@ namespace DAL
                     conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 numRecordsEffect = cmd.ExecuteNonQuery();
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("LỖI ĐÂY NÀY : " + ex.Message, "Thông báo lỗi !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Close();
             }
             if (numRecordsEffect > 0)
                 return true;
