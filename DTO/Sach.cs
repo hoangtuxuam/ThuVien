@@ -10,9 +10,15 @@ namespace DTO
         public int Gia { get; set; }
         public int SoLuong { get; set; }
         public DateTime NgayNhap { get; set; }
-        public int MaNXB { get; set; }
-        public int MaTG { get; set; }
-        public int MaTL { get; set; }
+        public NXB nxb { get; set; }
+        public TacGia tacGia { get; set; }
+        public TheLoai theLoai { get; set; }
         public bool TinhTrang { get; set; }
+        public Sach()
+        {
+            nxb = new NXB();
+            tacGia = new TacGia();
+            theLoai = new TheLoai();
+        }
     }
 }

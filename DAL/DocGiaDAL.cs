@@ -46,7 +46,7 @@ namespace DAL
             foreach (DataRow row in table.Rows)
             {
                 DocGia newdg = new DocGia();
-                newdg.MaDG = (int) row["maDG"];
+                newdg.MaDG = (int) row["MaDG"];
                 newdg.HoTenDG = (String)row["HoTenDG"];
                 newdg.EmailDG = (String)row["EmailDG"];
                 newdg.GioiTinhDG = (bool)row["GioiTinhDG"];
@@ -83,6 +83,22 @@ namespace DAL
                                ,'" + dg.NgayHetHan + @"'
                                ,'"+dg.NgayHetHan+@"'
                                ,"+Convert.ToInt16(dg.HoatDong) +")";
+            return dbcnn.ThucThiSQL(sql);
+        }
+
+        public bool updateDocGia(DocGia dg)
+        {
+            String sql = @"UPDATE [dbo].[DocGia]
+                           SET [HoTenDG] = N'" + dg.HoTenDG + @"'
+                              ,[EmailDG] = N'" + dg.EmailDG + @"'
+                              ,[GioiTinhDG] = " + Convert.ToInt16(dg.GioiTinhDG) + @"
+                              ,[NgaysinhDG] = N'" + dg.NgaysinhDG + @"'
+                              ,[DiachiDG] = N'" + dg.DiachiDG + @"'
+                              ,[DienthoaiDG] = N'" + dg.DienthoaiDG + @"'
+                              ,[NgayLamThe] = N'" + dg.NgayLamThe + @"'
+                              ,[NgayHetHan] = N'" + dg.NgayHetHan + @"'
+                              ,[HoatDong] ="+Convert.ToInt16(dg.HoatDong)+@"
+                         WHERE [MaDG]=" + dg.MaDG;
             return dbcnn.ThucThiSQL(sql);
         }
 

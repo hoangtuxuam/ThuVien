@@ -5,10 +5,16 @@ namespace DTO
     public class PhieuMuon
     {
         public int MaPhieu { get; set; }
-        public int MaDG { get; set; }
+        public DocGia docGia { get; set; }
         public DateTime NgayMuon { get; set; }
-        public int MaNV { get; set; }
-        public int MaSach { get; set; }
+        public NhanVien nhanVien { get; set; }
+        public Sach sach { get; set; }
         public DateTime HanTra { get; set; }
+        public PhieuMuon()
+        {
+            docGia = new DocGia();
+            nhanVien = new NhanVien();
+            sach = new Sach();
+        }
     }
 }

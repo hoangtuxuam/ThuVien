@@ -4,9 +4,9 @@ namespace DTO
 
     public class CT_PhieuMuon
     {
-        public int MaPhieu { get; set; }
+        public PhieuMuon phieuMuon { get; set; }
 
-        public int MaSach { get; set; }
+        public Sach sach { get; set; }
 
         public DateTime HanTra { get; set; }
 

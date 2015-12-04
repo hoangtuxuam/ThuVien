@@ -83,36 +83,24 @@ namespace DAL
 
         public bool InsertNhanVien(NhanVien nv)
         {
-            //String sql = @"INSERT INTO [dbo].[NhanVien]
-            //                   ([HoTenNV],[GioiTinhNV],[NgaySinhNV],[DienThoaiNV],[DiaChiNV],[EmailNV],[NgayVaoLam],[MatKhau],[QuyenHan]) VALUES (@hoten,>,@gioitinh,@ngaysinh,@dienthoai,@diachi,@email,@ngayvaolam,@matkhau,@quyenhan)";
-            //SqlCommand cmd = new SqlCommand(sql);
-            //cmd.Parameters.Add("@hoten", SqlDbType.Bit);
-            //cmd.Parameters.Add("@gioitinh", SqlDbType.Date);
-            //cmd.Parameters.Add("@ngaysinh", SqlDbType.NVarChar);
-            //cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar);
-            //cmd.Parameters.Add("@diachi", SqlDbType.NVarChar);
-            //cmd.Parameters.Add("@email", SqlDbType.NVarChar);
-            //cmd.Parameters.Add("@ngayvaolam", SqlDbType.Date);
-            //cmd.Parameters.Add("@matkhau", SqlDbType.NVarChar);
-            //cmd.Parameters.Add("@quyenhan", SqlDbType.Bit);
-
-            ////set value for parameter
-            //cmd.Parameters["@hoten"].Value = nv.HoTenNV;
-            //cmd.Parameters["@gioitinh"].Value = Convert.ToInt16(nv.GioiTinhNV);
-            //cmd.Parameters["@ngaysinh"].Value = nv.NgaySinhNV;
-            //cmd.Parameters["@dienthoai"].Value = nv.DienThoaiNV;
-            //cmd.Parameters["@email"].Value = nv.EmailNV;
-            //cmd.Parameters["@ngayvaolam"].Value = nv.NgayVaoLam;
-            //cmd.Parameters["@matkhau"].Value = nv.MatKhau;
-            //cmd.Parameters["@quyenhan"].Value = Convert.ToInt16(nv.QuyenHan);
-            //cmd.Parameters.AddWithValue("@hoten",nv.HoTenNV);
-            //dbcnn.Connect();
-            //cmd.Connection = dbcnn.conn;
-            //int count = cmd.ExecuteNonQuery();
-            //dbcnn.Close();
-            //if (count==1) return true;
-            //return false;
+            
             String sql = @"INSERT INTO [NhanVien] ([HoTenNV],[GioiTinhNV],[NgaySinhNV],[DienThoaiNV],[DiaChiNV],[EmailNV],[NgayVaoLam],[MatKhau],[QuyenHan]) VALUES ('" + nv.HoTenNV + "'," + Convert.ToInt16(nv.GioiTinhNV) + ",'" + nv.NgaySinhNV + "','" + nv.DienThoaiNV + "','" + nv.DiaChiNV + "','" + nv.EmailNV + "','" + nv.NgayVaoLam + "','" + nv.MatKhau + "'," + Convert.ToInt16(nv.GioiTinhNV) + ")";
+            return (dbcnn.ThucThiSQL(sql));
+        }
+        public bool updateNhanVien(NhanVien nv)
+        {
+
+            String sql = @"UPDATE [dbo].[NhanVien]
+                           SET [HoTenNV] = N'" + nv.HoTenNV + @"'
+                              ,[GioiTinhNV] = " + Convert.ToInt16(nv.GioiTinhNV) + @"
+                              ,[NgaySinhNV] = N'" + nv.NgaySinhNV + @"'
+                              ,[DienThoaiNV] = N'" + nv.DienThoaiNV + @"'
+                              ,[DiaChiNV] = N'" + nv.DiaChiNV + @"'
+                              ,[EmailNV] = N'" + nv.EmailNV + @"'
+                              ,[NgayVaoLam] = N'" + nv.NgayVaoLam + @"'
+                              ,[MatKhau] = N'" + nv.MatKhau + @"'
+                              ,[QuyenHan] = "+Convert.ToInt16(nv.QuyenHan)+@"
+                         WHERE [MaNV]= " + nv.MaNV;
             return (dbcnn.ThucThiSQL(sql));
         }
 
@@ -136,6 +124,40 @@ namespace DAL
                               ,[QuyenHan] = "+Convert.ToInt16(nv.GioiTinhNV)+
                          @"WHERE [MaNV]= "+nv.MaNV;
             return dbcnn.ThucThiSQL(sql);
+        }
+        public NhanVien getNhanVienById(int id)
+        {
+            String sql = @"SELECT [MaNV]
+                        ,[HoTenNV]
+                        ,[GioiTinhNV]
+                        ,[NgaySinhNV]
+                        ,[DienThoaiNV]
+                        ,[DiaChiNV]
+                        ,[EmailNV]
+                        ,[NgayVaoLam]
+                        ,[MatKhau]
+                        ,[QuyenHan]
+                    FROM[ThuVien].[dbo].[NhanVien] WHERE [MaNV]="+id;
+            DataTable table = dbcnn.getdata(sql);
+            NhanVien nv = new NhanVien();
+            if (table.Rows.Count==1)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    
+                    nv.MaNV = (int)row["MaNV"];
+                    nv.HoTenNV = (String)row["HoTenNV"];
+                    nv.GioiTinhNV = (Boolean)row["GioiTinhNV"];
+                    nv.NgaySinhNV = (DateTime)row["NgaySinhNV"];
+                    nv.DienThoaiNV = (String)row["DienThoaiNV"];
+                    nv.DiaChiNV = (String)row["DiaChiNV"];
+                    nv.EmailNV = (String)row["EmailNV"];
+                    nv.NgayVaoLam = (DateTime)row["NgayVaoLam"];
+                    nv.MatKhau = (String)row["MatKhau"];
+                    nv.QuyenHan = (Boolean)row["QuyenHan"];
+                } 
+            }
+            return nv;
         }
     }
 }
