@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DAL
 {
-    class TraSachDAL
+    public class TraSachDAL
     {
         TraSach traSach = new TraSach();
         ConnectDB dbcnn = new ConnectDB();

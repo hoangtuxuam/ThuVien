@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ThuVien.GUI.QuanLyDanhMuc
 {
-    public partial class Main : UserControl
+    public partial class TacGia : UserControl
     {
-        public Main()
+        public TacGia()
         {
             InitializeComponent();
         }

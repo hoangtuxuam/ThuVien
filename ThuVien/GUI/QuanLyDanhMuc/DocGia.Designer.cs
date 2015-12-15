@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Thêm = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -63,31 +63,41 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.Thêm);
+            this.panel3.Controls.Add(this.btnXoa);
+            this.panel3.Controls.Add(this.btnSua);
+            this.panel3.Controls.Add(this.btnThem);
             this.panel3.Location = new System.Drawing.Point(13, 15);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(159, 244);
             this.panel3.TabIndex = 0;
             // 
-            // button3
+            // btnXoa
             // 
-            this.button3.Location = new System.Drawing.Point(21, 165);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(21, 165);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(120, 51);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSua
             // 
-            this.button2.Location = new System.Drawing.Point(21, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 52);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(21, 91);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(120, 52);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            // 
+            // btnThem
+            // 
+            //this.btnThem.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ThuVien.Properties.Settings.Default, "Thêm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnThem.Location = new System.Drawing.Point(21, 20);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(120, 53);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -97,16 +107,6 @@
             this.panel2.Size = new System.Drawing.Size(840, 232);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // Thêm
-            // 
-            this.Thêm.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ThuVien.Properties.Settings.Default, "Thêm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Thêm.Location = new System.Drawing.Point(21, 20);
-            this.Thêm.Name = "Thêm";
-            this.Thêm.Size = new System.Drawing.Size(120, 53);
-            this.Thêm.TabIndex = 0;
-            this.Thêm.Text = global::ThuVien.Properties.Settings.Default.Thêm;
-            this.Thêm.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -345,9 +345,9 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button Thêm;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;

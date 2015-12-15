@@ -9,35 +9,35 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class SachDAL
+    public class SachDAL
     {
         Sach sach = new Sach();
         ConnectDB dbcnn = new ConnectDB();
         public DataTable getTableSach()
         {
-            //String sql = @"SELECT [MaSach]
-            //              ,[TenSach]
-            //              ,[NoiDungTT]
-            //              ,[SoTrang]
-            //              ,[Gia]
-            //              ,[SoLuong]
-            //              ,[NgayNhap]
-            //              ,[NXB].[MaNXB]
-            //           ,[TenNXB]
-            //              ,[DiaChiNXB]
-            //              ,[DienThoaiNXB]
-            //              ,[Website]
-            //              ,[TacGia].[MaTG]
-            //           ,[HoTenTG]
-            //              ,[DiaChiTG]
-            //              ,[DienThoaiTG]
-            //              ,[TheLoai].[MaTL]
-            //           ,[TenTL]
-            //              ,[GhiChu]
-            //              ,[TinhTrang]
-            //          FROM [dbo].[Sach] JOIN [NXB] on [Sach].MaNXB = NXB.MaNXB
-            //           JOIN TacGia ON [TacGia].MaTG = Sach.MaTG 
-            //           JOIN [TheLoai] ON [TheLoai].MaTL = Sach.MaTL";
+            //string sql = @"select [masach]
+            //              ,[tensach]
+            //              ,[noidungtt]
+            //              ,[sotrang]
+            //              ,[gia]
+            //              ,[soluong]
+            //              ,[ngaynhap]
+            //              ,[nxb].[manxb]
+            //           ,[tennxb]
+            //              ,[diachinxb]
+            //              ,[dienthoainxb]
+            //              ,[website]
+            //              ,[tacgia].[matg]
+            //           ,[hotentg]
+            //              ,[diachitg]
+            //              ,[dienthoaitg]
+            //              ,[theloai].[matl]
+            //           ,[tentl]
+            //              ,[ghichu]
+            //              ,[tinhtrang]
+            //          from [dbo].[sach] join [nxb] on [sach].manxb = nxb.manxb
+            //           join tacgia on [tacgia].matg = sach.matg 
+            //           join [theloai] on [theloai].matl = sach.matl";
             string sql = "select * from viewSach";
             return dbcnn.getdata(sql);
         }
@@ -90,7 +90,7 @@ namespace DAL
                 newSach.tacGia.DienThoaiTG = (string)row["DienThoaiTG"];
                 newSach.theLoai.MaTL = (int)row["MaTL"];
                 newSach.theLoai.TenTL = (string)row["TenTL"];
-                newSach.theLoai.GhiChu = (string)row["GhiChu"];
+                newSach.theLoai.GhiChu = row["GhiChu"].ToString();
                 newSach.TinhTrang = (bool)row["TinhTrang"];
                 listSach.Add(newSach);
             }
@@ -167,7 +167,7 @@ namespace DAL
             //           JOIN TacGia ON [TacGia].MaTG = Sach.MaTG 
             //           JOIN [TheLoai] ON [TheLoai].MaTL = Sach.MaTL
             //              FROM [dbo].[Sach] WHERE [MaSach]=" + id;
-            string sql = @"select * from viewSach WHERE MaSach="+id;
+            string sql = @"select * from viewSach WHERE MaSach=" + id;
             DataTable table = dbcnn.getdata(sql);
             Sach newSach = new Sach();
             if (table.Rows.Count == 1)
@@ -194,6 +194,13 @@ namespace DAL
                 newSach.TinhTrang = (bool)table.Rows[0]["TinhTrang"];
             }
             return newSach;
+        }
+
+        public bool deleteSach(Sach sach)
+        {
+            string sql = "DELETE FROM [dbo].[Sach]"
+                        + "WHERE MaSach = "+sach.MaSach;
+            return dbcnn.ThucThiSQL(sql);
         }
     }
 }

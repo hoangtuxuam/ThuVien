@@ -12,19 +12,12 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-
         private void load(object sender, EventArgs e)
         {
+            PhieuMuonDAL phieu = new PhieuMuonDAL();
             NhanVienDAL nv = new NhanVienDAL();
             DataTable table = new DataTable();
-            table.Columns.Add("tên");
-            table.Columns.Add("dia chi");
-            table.Columns.Add("ngay sinh");
-            table.Columns.Add("email");
-            foreach (NhanVien item in nv.getListNhanVien())
-            {
-                table.Rows.Add(item.HoTenNV,item.DiaChiNV,item.NgaySinhNV,item.EmailNV);
-            }
+            table = phieu.getTablePhieuMuon();
             dataGridView1.DataSource = table;
         }
 

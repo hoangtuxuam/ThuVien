@@ -48,11 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GUI\QuanLyDanhMuc\NhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\Sach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\Sach.Designer.cs">
+      <DependentUpon>Sach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\TacGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc\TacGia.Designer.cs">
+      <DependentUpon>TacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\BaoCao\BaoCao.cs">
       <SubType>Form</SubType>
@@ -89,12 +107,6 @@
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\DocGia.Designer.cs">
       <DependentUpon>DocGia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc\Main.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\MainQuanLy.cs">
       <SubType>UserControl</SubType>
@@ -140,8 +152,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\Sach.resx">
+      <DependentUpon>Sach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc\TacGia.resx">
+      <DependentUpon>TacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaoCao\BaoCao.resx">
       <DependentUpon>BaoCao.cs</DependentUpon>
@@ -160,9 +181,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\DocGia.resx">
       <DependentUpon>DocGia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\QuanLyDanhMuc\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\MainQuanLy.resx">
       <DependentUpon>MainQuanLy.cs</DependentUpon>
@@ -208,7 +226,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{21c218ae-9ec6-47df-b906-a515e72062a3}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{e9c034b8-28b2-4cfb-a218-5d9706145829}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

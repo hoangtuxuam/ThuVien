@@ -24,7 +24,7 @@ namespace DAL
         }
 
         //Khai bao chuoi ket noi CSDL
-        private string strConnect = @"Data Source=DESKTOP-D3QKDSP;Initial Catalog=TuDien;Integrated Security=True";
+        private string strConnect = @"Data Source=DESKTOP-D3QKDSP;Initial Catalog=ThuVien;Integrated Security=True";
         //Kết nối
         public void Connect()
         {

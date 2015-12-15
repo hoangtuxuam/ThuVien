@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DAL
 {
-    class TheLoaiDAL
+    public class TheLoaiDAL
     {
         TheLoai theLoai = new TheLoai();
         ConnectDB dbcnn = new ConnectDB();
@@ -34,7 +34,7 @@ namespace DAL
                 TheLoai newTheLoai = new TheLoai();
                 newTheLoai.MaTL = (int)row["MaTL"];
                 newTheLoai.TenTL = (String)row["TenTL"];
-                newTheLoai.GhiChu = (String)row["GhiChu"];
+                newTheLoai.GhiChu = row["GhiChu"].ToString();
                 listTG.Add(newTheLoai);
             }
             return listTG;
@@ -76,6 +76,12 @@ namespace DAL
                 newTheLoai.GhiChu = (string)table.Rows[0]["GhiChu"];
             }
             return newTheLoai;
+        }
+        public bool deleteTheLoai(TheLoai theLoai)
+        {
+            string sql = @"DELETE FROM [dbo].[TheLoai]
+                            WHERE MaTL ="+theLoai.MaTL;
+            return dbcnn.ThucThiSQL(sql);
         }
     }
 }

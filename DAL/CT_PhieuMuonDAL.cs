@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DAL
 {
-    class CT_PhieuMuonDAL
+    public class CT_PhieuMuonDAL
     {
         CT_PhieuMuon ctPhieu = new CT_PhieuMuon();
         ConnectDB dbcnn = new ConnectDB();

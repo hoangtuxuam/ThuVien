@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 namespace DAL
 {
-    class nxbDAL
+    public class nxbDAL
     {
         NXB nxb = new NXB();
         ConnectDB dbcnn = new ConnectDB();

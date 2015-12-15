@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DAL
 {
-    class TacGiaDAL
+    public class TacGiaDAL
     {
         TacGia tacGia = new TacGia();
         ConnectDB dbcnn = new ConnectDB();

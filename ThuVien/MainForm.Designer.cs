@@ -1,6 +1,6 @@
 ﻿namespace ThuVien
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelChucNang = new System.Windows.Forms.Panel();
             this.btnBaocao = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -36,9 +36,7 @@
             this.btnQuanLyDanhMuc = new System.Windows.Forms.Button();
             this.panelBanner = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.quanLyNhanVien1 = new ThuVien.GUI.QuanLyDanhMuc.QuanLyNhanVien();
             this.panelChucNang.SuspendLayout();
-            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChucNang
@@ -62,6 +60,7 @@
             this.btnBaocao.TabIndex = 3;
             this.btnBaocao.Text = "BÁO CÁO";
             this.btnBaocao.UseVisualStyleBackColor = false;
+            this.btnBaocao.Click += new System.EventHandler(this.btnBaocao_Click);
             // 
             // btnTimKiem
             // 
@@ -72,6 +71,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "TÌM KIẾM";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnQuanLyMuonTra
             // 
@@ -93,6 +93,7 @@
             this.btnQuanLyDanhMuc.TabIndex = 0;
             this.btnQuanLyDanhMuc.Text = "QUẢN LÍ DANH MỤC";
             this.btnQuanLyDanhMuc.UseVisualStyleBackColor = false;
+            this.btnQuanLyDanhMuc.Click += new System.EventHandler(this.btnQuanLyDanhMuc_Click);
             // 
             // panelBanner
             // 
@@ -105,20 +106,12 @@
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMain.Controls.Add(this.quanLyNhanVien1);
             this.panelMain.Location = new System.Drawing.Point(139, 116);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1033, 533);
             this.panelMain.TabIndex = 2;
             // 
-            // quanLyNhanVien1
-            // 
-            this.quanLyNhanVien1.Location = new System.Drawing.Point(3, 5);
-            this.quanLyNhanVien1.Name = "quanLyNhanVien1";
-            this.quanLyNhanVien1.Size = new System.Drawing.Size(866, 511);
-            this.quanLyNhanVien1.TabIndex = 0;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,11 +124,10 @@
             this.MaximumSize = new System.Drawing.Size(1200, 700);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 700);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelChucNang.ResumeLayout(false);
-            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -149,7 +141,6 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnQuanLyMuonTra;
         private System.Windows.Forms.Button btnQuanLyDanhMuc;
-        private GUI.QuanLyDanhMuc.QuanLyNhanVien quanLyNhanVien1;
     }
 }
 

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace DAL
 {
-    class DocGiaDAL
+    public class DocGiaDAL
     {
         DocGia dg = new DocGia();
         ConnectDB dbcnn = new ConnectDB();
