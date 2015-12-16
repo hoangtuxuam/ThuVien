@@ -119,13 +119,15 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         {
             listTheLoai = theLoaiBUS.getListTheLoai();
             DataTable table = new DataTable();
+            table.Columns.Add("Mã Thể Loại");
             table.Columns.Add("Nên Thể Loại");
             table.Columns.Add("Ghi Chú");
             foreach (DTO.TheLoai tl in listTheLoai)
             {
-                table.Rows.Add(tl.TenTL, tl.GhiChu);
+                table.Rows.Add(tl.MaTL,tl.TenTL, tl.GhiChu);
             }
             grvDanhSach.DataSource = table;
+            this.grvDanhSach.Columns[0].Visible = false;
 
         }
         private void resetAllForm()
@@ -146,12 +148,26 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         {
             if (choose == 2 || choose == 3)
             {
-                int row = e.RowIndex;
-                DTO.TheLoai theLoai = listTheLoai[row];
-                txtTenTL.Text = theLoai.TenTL;
-                txtGhiChu.Text = theLoai.GhiChu;
-                TheLoaiID = theLoai.MaTL;
+                try
+                {
+                    int row = e.RowIndex;
+                    foreach (DTO.TheLoai theLoai in listTheLoai)
+                    {
+                        if (Convert.ToInt16(grvDanhSach.Rows[row].Cells[0].Value) == theLoai.MaTL)
+                        {
+                            txtTenTL.Text = theLoai.TenTL;
+                            txtGhiChu.Text = theLoai.GhiChu;
+                            TheLoaiID = theLoai.MaTL;
+                        }
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                }
             }
+
         }
 
         private void OnLoad(object sender, EventArgs e)

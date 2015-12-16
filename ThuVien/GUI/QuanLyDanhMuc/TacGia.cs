@@ -121,14 +121,16 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         {
             listTacGia = tacGiaiBUS.getListtacGia();
             DataTable table = new DataTable();
+            table.Columns.Add("Mã Tác Giả");
             table.Columns.Add("Họ Tên Tác Giả");
             table.Columns.Add("Địa Chỉ");
             table.Columns.Add("Số Điện Thoại");
             foreach (DTO.TacGia tg in listTacGia)
             {
-                table.Rows.Add(tg.HoTenTG, tg.DiaChiTG,tg.DienThoaiTG);
+                table.Rows.Add(tg.MaTG,tg.HoTenTG, tg.DiaChiTG,tg.DienThoaiTG);
             }
             grvDanhSach.DataSource = table;
+            grvDanhSach.Columns[0].Visible = false;
 
         }
         private void resetAllForm()
@@ -150,12 +152,25 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         {
             if (choose == 2 || choose == 3)
             {
-                int row = e.RowIndex;
-                DTO.TacGia tacGia = listTacGia[row];
-                txtHoTen.Text = tacGia.HoTenTG;
-                txtDiaChi.Text = tacGia.DiaChiTG;
-                txtDienThoai.Text = tacGia.DienThoaiTG;
-                TacGiaID = tacGia.MaTG;
+                try
+                {
+                    int row = e.RowIndex;
+                    foreach (DTO.TacGia tacGia in listTacGia)
+                    {
+                        if (Convert.ToInt16(grvDanhSach.Rows[row].Cells[0].Value) == tacGia.MaTG)
+                        {
+                            txtHoTen.Text = tacGia.HoTenTG;
+                            txtDiaChi.Text = tacGia.DiaChiTG;
+                            txtDienThoai.Text = tacGia.DienThoaiTG;
+                            TacGiaID = tacGia.MaTG;
+                        }
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    
+                }
             }
         }
 
