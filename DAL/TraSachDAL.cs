@@ -108,5 +108,13 @@ namespace DAL
             }
             return newTraSach;
         }
+        public bool deleteTraSach(TraSach traSach)
+        {
+            String sql = @"DELETE FROM [dbo].[TraSach]
+                         WHERE [MaPhieu]=" + traSach.MaPhieu;
+            return dbcnn.ThucThiSQL(sql);
+        }
+
+
     }
 }

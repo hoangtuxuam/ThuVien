@@ -46,6 +46,7 @@
     <Compile Include="loginBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyDanhMuc\QuanLySachBUS.cs" />
+    <Compile Include="QuanLyDanhMuc\QuanLyTacGiaBUS.cs" />
     <Compile Include="QuanLyDanhMuc\QuanLyTheLoaiBUS.cs" />
   </ItemGroup>
   <ItemGroup>

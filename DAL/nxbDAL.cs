@@ -91,5 +91,11 @@ namespace DAL
             }
             return newNXB;
         }
+        public bool deleteNXB(NXB nxb)
+        {
+            String sql = @"DELETE FROM [dbo].[NXB]
+                         WHERE [MaNXB]=" + nxb.MaNXB;
+            return dbcnn.ThucThiSQL(sql);
+        }
     }
 }

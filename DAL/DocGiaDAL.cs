@@ -131,5 +131,12 @@ namespace DAL
             }
             return newdg;
         }
+
+        public bool deleteDocGia(DocGia dg)
+        {
+            String sql = @"DELETE FROM [dbo].[DocGia]
+                         WHERE [MaDG]=" + dg.MaDG;
+            return dbcnn.ThucThiSQL(sql);
+        }
     }
 }

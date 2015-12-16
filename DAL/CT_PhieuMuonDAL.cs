@@ -89,5 +89,13 @@ namespace DAL
             }
             return newCT_PhieuMuon;
         }
+
+
+        public bool deleteCT_PhieuMuon(CT_PhieuMuon ctPhieu)
+        {
+            String sql = @"DELETE FROM [dbo].[CT_PhieuMuon]
+                         WHERE [MaPhieu]=" + ctPhieu.phieuMuon.MaPhieu;
+            return dbcnn.ThucThiSQL(sql);
+        }
     }
 }

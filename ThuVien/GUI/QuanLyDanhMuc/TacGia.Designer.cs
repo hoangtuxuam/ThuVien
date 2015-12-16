@@ -29,32 +29,30 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnDatlai = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDienThoai = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.grvDanhSach = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btnDatlai);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtDienThoai);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.btnLuu);
             this.panel2.Controls.Add(this.txtDiaChi);
             this.panel2.Controls.Add(this.txtHoTen);
             this.panel2.Controls.Add(this.label2);
@@ -64,14 +62,15 @@
             this.panel2.Size = new System.Drawing.Size(662, 215);
             this.panel2.TabIndex = 4;
             // 
-            // button6
+            // btnDatlai
             // 
-            this.button6.Location = new System.Drawing.Point(257, 160);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 35);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Đặt lại";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDatlai.Location = new System.Drawing.Point(257, 160);
+            this.btnDatlai.Name = "btnDatlai";
+            this.btnDatlai.Size = new System.Drawing.Size(105, 35);
+            this.btnDatlai.TabIndex = 12;
+            this.btnDatlai.Text = "Đặt lại";
+            this.btnDatlai.UseVisualStyleBackColor = true;
+            this.btnDatlai.Click += new System.EventHandler(this.btnDatLai_Click);
             // 
             // label3
             // 
@@ -89,23 +88,15 @@
             this.txtDienThoai.Size = new System.Drawing.Size(246, 20);
             this.txtDienThoai.TabIndex = 10;
             // 
-            // button5
+            // btnLuu
             // 
-            this.button5.Location = new System.Drawing.Point(409, 160);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 35);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Thoát";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(92, 160);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 35);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Lưu";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLuu.Location = new System.Drawing.Point(92, 160);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(105, 35);
+            this.btnLuu.TabIndex = 8;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // txtDiaChi
             // 
@@ -141,84 +132,88 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnXoa);
+            this.panel1.Controls.Add(this.btnSua);
+            this.panel1.Controls.Add(this.btnThem);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(172, 215);
             this.panel1.TabIndex = 3;
             // 
-            // button3
+            // btnXoa
             // 
-            this.button3.Location = new System.Drawing.Point(23, 153);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 49);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(23, 153);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(121, 49);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // button2
+            // btnSua
             // 
-            this.button2.Location = new System.Drawing.Point(23, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 49);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(23, 85);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(121, 49);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // button1
+            // btnThem
             // 
-            this.button1.Location = new System.Drawing.Point(23, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(23, 17);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(121, 49);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // dataGridView1
+            // grvDanhSach
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 234);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(840, 274);
-            this.dataGridView1.TabIndex = 5;
+            this.grvDanhSach.AllowUserToAddRows = false;
+            this.grvDanhSach.AllowUserToDeleteRows = false;
+            this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvDanhSach.Location = new System.Drawing.Point(13, 234);
+            this.grvDanhSach.Name = "grvDanhSach";
+            this.grvDanhSach.ReadOnly = true;
+            this.grvDanhSach.Size = new System.Drawing.Size(840, 274);
+            this.grvDanhSach.TabIndex = 5;
+            this.grvDanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // TacGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grvDanhSach);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "TacGia";
             this.Size = new System.Drawing.Size(866, 511);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnDatlai;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDienThoai;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.DataGridView grvDanhSach;
     }
 }

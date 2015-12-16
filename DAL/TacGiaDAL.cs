@@ -50,9 +50,9 @@ namespace DAL
                                ,[DiaChiTG]
                                ,[DienThoaiTG])
                          VALUES
-                               ('"+tacGia.HoTenTG+ @"'
-                               ,'" + tacGia.DiaChiTG + @"'
-                               ,'" + tacGia.DienThoaiTG + @"')";
+                               (N'"+tacGia.HoTenTG+ @"'
+                               ,N'" + tacGia.DiaChiTG + @"'
+                               ,N'" + tacGia.DienThoaiTG + @"')";
             return dbcnn.ThucThiSQL(sql);
         }
 
@@ -85,5 +85,13 @@ namespace DAL
             }
             return newTacGia;
         }
+
+        public bool deleteTacGia(TacGia tacGia)
+        {
+            String sql = @"DELETE FROM [dbo].[TacGia]
+                         WHERE [MaTG]=" + tacGia.MaTG;
+            return dbcnn.ThucThiSQL(sql);
+        }
+
     }
 }

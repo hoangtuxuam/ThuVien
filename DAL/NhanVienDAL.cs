@@ -159,5 +159,12 @@ namespace DAL
             }
             return nv;
         }
+        
+        public bool deleteNhanVien(NhanVien nv)
+        {
+            String sql = @"DELETE FROM[dbo].[NhanVien]"+
+                         @"WHERE [MaNV]= " + nv.MaNV;
+            return dbcnn.ThucThiSQL(sql);
+        }
     }
 }
