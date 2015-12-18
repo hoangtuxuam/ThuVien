@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 
 namespace ThuVien
 {
     public partial class LoginForm : Form
     {
+        loginBUS loginBus = new loginBUS();
         public LoginForm()
         {
             InitializeComponent();
@@ -37,12 +39,22 @@ namespace ThuVien
             {
                 err += "Mật khẩu không được trống!";
             }
-            if (err.Trim().Length!=0)
+            if(err.Length==0)
             {
-                MessageBox.Show(err, "Lỗi!!");
-            }else
+                Session.cNhanVien = new DTO.NhanVien();
+                Session.cNhanVien = loginBus.CheckLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
+                if (Session.cNhanVien == null) MessageBox.Show("tên đăng nhập hoặc mật khẩu không đúng");
+                else
+                {
+                    MessageBox.Show("đăng nhập thành công!!");
+                    MainForm main = new MainForm();
+                    main.Show();
+                    this.Hide();
+                }
+            }
+            else
             {
-
+                MessageBox.Show(err);
             }
         }
     }

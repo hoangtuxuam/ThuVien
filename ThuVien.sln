@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{A286A9F6-FBF5-4E41-892A-45AED859669E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaHoa", "MaHoa\MaHoa.csproj", "{50823B81-A37E-4F47-B510-E6A1683F8E83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A286A9F6-FBF5-4E41-892A-45AED859669E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A286A9F6-FBF5-4E41-892A-45AED859669E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A286A9F6-FBF5-4E41-892A-45AED859669E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50823B81-A37E-4F47-B510-E6A1683F8E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50823B81-A37E-4F47-B510-E6A1683F8E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50823B81-A37E-4F47-B510-E6A1683F8E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50823B81-A37E-4F47-B510-E6A1683F8E83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="loginBUS.cs" />
+    <Compile Include="MaHoa.cs" />
+    <Compile Include="MuonTra\MuonSachBUS.cs" />
+    <Compile Include="MuonTra\TraSach.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyDanhMuc\QuanLySachBUS.cs" />
     <Compile Include="QuanLyDanhMuc\QuanLyTacGiaBUS.cs" />

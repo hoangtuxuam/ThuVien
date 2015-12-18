@@ -9,9 +9,15 @@ namespace BUS
 {
     public class loginBUS
     {
+        NhanVienDAL nvDAL = new NhanVienDAL();
         public NhanVien CheckLogin(String username, String password)
         {
-            String sql = @"SELECT * FROM [NhanVien]";
+            MaHoa mh = new MaHoa();
+            password = mh.EncodeMD5(password);
+            if (nvDAL.chekLogin(username, password))
+            {
+                return nvDAL.getNhanVienByUsername(username);
+            }
             return null;
         }
     }

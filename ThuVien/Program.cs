@@ -8,6 +8,7 @@ namespace ThuVien
 {
     static class Program
     {
+        public static DTO.NhanVien CrNhanVien =null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,7 @@ namespace ThuVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
     }
 }

@@ -30,7 +30,7 @@ namespace DAL
         }
         public List<DocGia> getListDocGia()
         {
-            String sql = @"SELECT TOP 1000 [MaDG]
+            String sql = @"SELECT [MaDG]
                           ,[HoTenDG]
                           ,[EmailDG]
                           ,[GioiTinhDG]
@@ -104,7 +104,8 @@ namespace DAL
 
         public DocGia getDocGiaById(int id)
         {
-            String sql = @"SELECT TOP 1000 [HoTenDG]
+            String sql = @"SELECT [MaDG]
+                          ,[HoTenDG]
                           ,[EmailDG]
                           ,[GioiTinhDG]
                           ,[NgaysinhDG]
@@ -113,12 +114,12 @@ namespace DAL
                           ,[NgayLamThe]
                           ,[NgayHetHan]
                           ,[HoatDong]
-                      FROM [ThuVien].[dbo].[DocGia] WHERE [MaDG]="+id;
+                      FROM [ThuVien].[dbo].[DocGia] WHERE [MaDG]=" + id;
             DataTable table = dbcnn.getdata(sql);
             DocGia newdg = new DocGia();
             if (table.Rows.Count == 1)
             {
-                newdg.MaDG = (int)table.Rows[0]["maDG"];
+                newdg.MaDG = (int)table.Rows[0]["MaDG"];
                 newdg.HoTenDG = (String)table.Rows[0]["HoTenDG"];
                 newdg.EmailDG = (String)table.Rows[0]["EmailDG"];
                 newdg.GioiTinhDG = (bool)table.Rows[0]["GioiTinhDG"];

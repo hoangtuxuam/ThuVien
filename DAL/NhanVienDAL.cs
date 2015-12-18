@@ -62,9 +62,9 @@ namespace DAL
             return listNhanVien;
         }
 
-        public NhanVien chekLogin(String username,String password)
+        public bool chekLogin(String username,String password)
         {
-            String sql = @"SELECT [MaNV]
+            string sql = @"SELECT [MaNV]
                         ,[HoTenNV]
                         ,[GioiTinhNV]
                         ,[NgaySinhNV]
@@ -75,10 +75,15 @@ namespace DAL
                         ,[MatKhau]
                         ,[QuyenHan]
                     FROM[ThuVien].[dbo].[NhanVien] 
-                    WHERE [EmailNV] = "+username+
-                    "AND [MatKhau] = "+password;
-            NhanVien nv =(NhanVien) dbcnn.get1Row(sql);
-            return nv;
+                    WHERE [EmailNV] = '"+username+
+                    "' AND [MatKhau] = '" + password+"'";
+            //NhanVien nv =(NhanVien) dbcnn.get1Row(sql);
+            dbcnn.Connect();
+            SqlCommand cmd = new SqlCommand(sql, dbcnn.conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            //dbcnn.Close();
+            if (reader.HasRows) return true;
+            return false;
         }
 
         public bool InsertNhanVien(NhanVien nv)
@@ -159,7 +164,76 @@ namespace DAL
             }
             return nv;
         }
-        
+
+        public NhanVien getNhanVienByUsername(string email)
+        {
+            String sql = @"SELECT [MaNV]
+                        ,[HoTenNV]
+                        ,[GioiTinhNV]
+                        ,[NgaySinhNV]
+                        ,[DienThoaiNV]
+                        ,[DiaChiNV]
+                        ,[EmailNV]
+                        ,[NgayVaoLam]
+                        ,[MatKhau]
+                        ,[QuyenHan]
+                    FROM[ThuVien].[dbo].[NhanVien] WHERE [EmailNV]='" + email+"'";
+            DataTable table = dbcnn.getdata(sql);
+            NhanVien nv = new NhanVien();
+            if (table.Rows.Count == 1)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+
+                    nv.MaNV = (int)row["MaNV"];
+                    nv.HoTenNV = (String)row["HoTenNV"];
+                    nv.GioiTinhNV = (Boolean)row["GioiTinhNV"];
+                    nv.NgaySinhNV = (DateTime)row["NgaySinhNV"];
+                    nv.DienThoaiNV = (String)row["DienThoaiNV"];
+                    nv.DiaChiNV = (String)row["DiaChiNV"];
+                    nv.EmailNV = (String)row["EmailNV"];
+                    nv.NgayVaoLam = (DateTime)row["NgayVaoLam"];
+                    nv.MatKhau = (String)row["MatKhau"];
+                    nv.QuyenHan = (Boolean)row["QuyenHan"];
+                }
+            }
+            return nv;
+        }
+        public NhanVien getNhanVienByID(int id)
+        {
+            String sql = @"SELECT [MaNV]
+                        ,[HoTenNV]
+                        ,[GioiTinhNV]
+                        ,[NgaySinhNV]
+                        ,[DienThoaiNV]
+                        ,[DiaChiNV]
+                        ,[EmailNV]
+                        ,[NgayVaoLam]
+                        ,[MatKhau]
+                        ,[QuyenHan]
+                    FROM[ThuVien].[dbo].[NhanVien] WHERE [MaNV]=" + id;
+            DataTable table = dbcnn.getdata(sql);
+            NhanVien nv = new NhanVien();
+            if (table.Rows.Count == 1)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+
+                    nv.MaNV = (int)row["MaNV"];
+                    nv.HoTenNV = (String)row["HoTenNV"];
+                    nv.GioiTinhNV = (Boolean)row["GioiTinhNV"];
+                    nv.NgaySinhNV = (DateTime)row["NgaySinhNV"];
+                    nv.DienThoaiNV = (String)row["DienThoaiNV"];
+                    nv.DiaChiNV = (String)row["DiaChiNV"];
+                    nv.EmailNV = (String)row["EmailNV"];
+                    nv.NgayVaoLam = (DateTime)row["NgayVaoLam"];
+                    nv.MatKhau = (String)row["MatKhau"];
+                    nv.QuyenHan = (Boolean)row["QuyenHan"];
+                }
+            }
+            return nv;
+        }
+
         public bool deleteNhanVien(NhanVien nv)
         {
             String sql = @"DELETE FROM[dbo].[NhanVien]"+

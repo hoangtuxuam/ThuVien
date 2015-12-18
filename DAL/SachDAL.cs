@@ -190,7 +190,7 @@ namespace DAL
                 newSach.tacGia.DienThoaiTG = (string)table.Rows[0]["DienThoaiTG"];
                 newSach.theLoai.MaTL = (int)table.Rows[0]["MaTL"];
                 newSach.theLoai.TenTL = (string)table.Rows[0]["TenTL"];
-                newSach.theLoai.GhiChu = (string)table.Rows[0]["GhiChu"];
+                newSach.theLoai.GhiChu = table.Rows[0]["GhiChu"].ToString();
                 newSach.TinhTrang = (bool)table.Rows[0]["TinhTrang"];
             }
             return newSach;

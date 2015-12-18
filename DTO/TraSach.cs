@@ -9,6 +9,11 @@ namespace DTO
         public DateTime NgayTra { get; set; }
         public int PhatHuHong { get; set; }
         public int PhatQuaHan { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
+        //public virtual NhanVien NhanVien { get; set; }
+        public TraSach()
+        {
+            phieuMuon = new PhieuMuon();
+            nhanVien = new NhanVien();
+        }
     }
 }

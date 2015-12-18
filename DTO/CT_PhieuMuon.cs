@@ -10,5 +10,10 @@ namespace DTO
 
         public DateTime HanTra { get; set; }
 
+        public CT_PhieuMuon()
+        {
+            sach = new Sach();
+        }
+
     }
 }

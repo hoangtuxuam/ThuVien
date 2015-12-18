@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaHoa
+namespace BUS
 {
-    public class MaHoa
+    class MaHoa
     {
         public string EncodeMD5(string pass)
         {
