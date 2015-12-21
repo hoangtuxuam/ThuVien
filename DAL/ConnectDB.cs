@@ -25,7 +25,9 @@ namespace DAL
 
         //Khai bao chuoi ket noi CSDL
         private string strConnect = @"Data Source=DESKTOP-D3QKDSP;Initial Catalog=ThuVien;Integrated Security=True";
-        //Kết nối
+        /// <summary>
+        /// kết nối tới database
+        /// </summary>
         public void Connect()
         {
             try
@@ -39,6 +41,9 @@ namespace DAL
                 System.Environment.Exit(0);
             }
         }
+        /// <summary>
+        /// đóng kết nối tới database
+        /// </summary>
         public void Close()
         {
             if (conn.State == ConnectionState.Open)
@@ -46,7 +51,11 @@ namespace DAL
         }
 
 
-        //Hàm lấy dữ liệu từ Database theo câu lệnh sql truyền vào
+        /// <summary>
+        /// Hàm lấy dữ liệu từ Database theo câu lệnh sql truyền vào
+        /// </summary>
+        /// <param name="sql">câu lệnh sql</param>
+        /// <returns></returns>
         public DataTable getdata(string sql)
         {
             Connect();
@@ -81,7 +90,11 @@ namespace DAL
             return listObj;
         }
 
-        //Hàm Thêm, Cập nhật, Xóa dữ liệu theo câu lệnh sql đưa vào
+        /// <summary>
+        /// Hàm Thêm, Cập nhật, Xóa dữ liệu theo câu lệnh sql đưa vào
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns>cập nhật thành công thì trả về true</returns>
         public bool ThucThiSQL(string sql)
         {
             int numRecordsEffect = 0;

@@ -28,6 +28,10 @@ namespace DAL
                       FROM [ThuVien].[dbo].[DocGia]";
             return dbcnn.getdata(sql);
         }
+        /// <summary>
+        /// lấy table độc giả
+        /// </summary>
+        /// <returns></returns>
         public List<DocGia> getListDocGia()
         {
             String sql = @"SELECT [MaDG]
@@ -60,7 +64,11 @@ namespace DAL
             }
             return listDG;
         }
-
+        /// <summary>
+        /// chèn độc giả vào csdl
+        /// </summary>
+        /// <param name="dg">Độc Giả</param>
+        /// <returns></returns>
         public bool insertDocGia(DocGia dg)
         {
             String sql = @"INSERT INTO [dbo].[DocGia]
@@ -85,7 +93,11 @@ namespace DAL
                                ,"+Convert.ToInt16(dg.HoatDong) +")";
             return dbcnn.ThucThiSQL(sql);
         }
-
+        /// <summary>
+        /// update độc giả trong csdl
+        /// </summary>
+        /// <param name="dg">Độc giả</param>
+        /// <returns></returns>
         public bool updateDocGia(DocGia dg)
         {
             String sql = @"UPDATE [dbo].[DocGia]
@@ -101,7 +113,11 @@ namespace DAL
                          WHERE [MaDG]=" + dg.MaDG;
             return dbcnn.ThucThiSQL(sql);
         }
-
+        /// <summary>
+        /// lấy độc giả bằng mã độc giả
+        /// </summary>
+        /// <param name="id">mã độc giả</param>
+        /// <returns></returns>
         public DocGia getDocGiaById(int id)
         {
             String sql = @"SELECT [MaDG]
@@ -132,7 +148,11 @@ namespace DAL
             }
             return newdg;
         }
-
+        /// <summary>
+        /// xóa độc giả 
+        /// </summary>
+        /// <param name="dg"></param>
+        /// <returns></returns>
         public bool deleteDocGia(DocGia dg)
         {
             String sql = @"DELETE FROM [dbo].[DocGia]

@@ -74,21 +74,28 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             if (choose == 1)
             {
 
-                try
+                if (checkErr().Trim().Length!=0)
                 {
-                    DTO.TacGia TacGiaThem = new DTO.TacGia();
-                    TacGiaThem.HoTenTG = txtHoTen.Text.Trim();
-                    TacGiaThem.DiaChiTG = txtDiaChi.Text.Trim();
-                    TacGiaThem.DienThoaiTG = txtDienThoai.Text.Trim();
-                    if (tacGiaiBUS.themtacGia(TacGiaThem))
+                    try
                     {
-                        MessageBox.Show("Thêm Tác Giả thành công!");
-                        loadGridView();
+                        DTO.TacGia TacGiaThem = new DTO.TacGia();
+                        TacGiaThem.HoTenTG = txtHoTen.Text.Trim();
+                        TacGiaThem.DiaChiTG = txtDiaChi.Text.Trim();
+                        TacGiaThem.DienThoaiTG = txtDienThoai.Text.Trim();
+                        if (tacGiaiBUS.themtacGia(TacGiaThem))
+                        {
+                            MessageBox.Show("Thêm Tác Giả thành công!");
+                            loadGridView();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    } 
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(checkErr(), "Lỗi");
                 }
                 //viết hàm thêm
             }
@@ -96,16 +103,23 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 if (choose == 2)
             {
                 //viết hàm sửa
-                DTO.TacGia TacGiaSua = new DTO.TacGia();
-
-                TacGiaSua.MaTG = TacGiaID;
-                TacGiaSua.HoTenTG = txtHoTen.Text.Trim();
-                TacGiaSua.DiaChiTG = txtDiaChi.Text.Trim();
-                TacGiaSua.DienThoaiTG = txtDienThoai.Text.Trim();
-                if (tacGiaiBUS.suatacGia(TacGiaSua))
+                if (checkErr().Trim().Length!=0)
                 {
-                    MessageBox.Show("Sửa Tác Giả thành công!");
-                    loadGridView();
+                    DTO.TacGia TacGiaSua = new DTO.TacGia();
+
+                    TacGiaSua.MaTG = TacGiaID;
+                    TacGiaSua.HoTenTG = txtHoTen.Text.Trim();
+                    TacGiaSua.DiaChiTG = txtDiaChi.Text.Trim();
+                    TacGiaSua.DienThoaiTG = txtDienThoai.Text.Trim();
+                    if (tacGiaiBUS.suatacGia(TacGiaSua))
+                    {
+                        MessageBox.Show("Sửa Tác Giả thành công!");
+                        loadGridView();
+                    } 
+                }
+                else
+                {
+                    MessageBox.Show(checkErr(), "Lỗi");
                 }
             }
             else if (choose == 3)

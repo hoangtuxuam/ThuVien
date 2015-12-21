@@ -92,6 +92,11 @@ namespace DAL
             String sql = @"INSERT INTO [NhanVien] ([HoTenNV],[GioiTinhNV],[NgaySinhNV],[DienThoaiNV],[DiaChiNV],[EmailNV],[NgayVaoLam],[MatKhau],[QuyenHan]) VALUES ('" + nv.HoTenNV + "'," + Convert.ToInt16(nv.GioiTinhNV) + ",'" + nv.NgaySinhNV + "','" + nv.DienThoaiNV + "','" + nv.DiaChiNV + "','" + nv.EmailNV + "','" + nv.NgayVaoLam + "','" + nv.MatKhau + "'," + Convert.ToInt16(nv.GioiTinhNV) + ")";
             return (dbcnn.ThucThiSQL(sql));
         }
+        /// <summary>
+        /// sửa nhân viên trong cơ sở dữ liệu
+        /// </summary>
+        /// <param name="nv">Nhân Viên</param>
+        /// <returns></returns>
         public bool updateNhanVien(NhanVien nv)
         {
             string sql;
@@ -100,11 +105,11 @@ namespace DAL
                 sql = @"UPDATE [dbo].[NhanVien]
                            SET [HoTenNV] = N'" + nv.HoTenNV + @"'
                               ,[GioiTinhNV] = " + Convert.ToInt16(nv.GioiTinhNV) + @"
-                              ,[NgaySinhNV] = N'" + nv.NgaySinhNV + @"'
+                              ,[NgaySinhNV] = '" + nv.NgaySinhNV + @"'
                               ,[DienThoaiNV] = N'" + nv.DienThoaiNV + @"'
                               ,[DiaChiNV] = N'" + nv.DiaChiNV + @"'
                               ,[EmailNV] = N'" + nv.EmailNV + @"'
-                              ,[NgayVaoLam] = N'" + nv.NgayVaoLam + @"'
+                              ,[NgayVaoLam] = '" + nv.NgayVaoLam + @"'
                               ,[QuyenHan] = " + Convert.ToInt16(nv.QuyenHan) + @"
                          WHERE [MaNV]= " + nv.MaNV;
             }
@@ -113,18 +118,22 @@ namespace DAL
                 sql = @"UPDATE [dbo].[NhanVien]
                            SET [HoTenNV] = N'" + nv.HoTenNV + @"'
                               ,[GioiTinhNV] = " + Convert.ToInt16(nv.GioiTinhNV) + @"
-                              ,[NgaySinhNV] = N'" + nv.NgaySinhNV + @"'
+                              ,[NgaySinhNV] = '" + nv.NgaySinhNV + @"'
                               ,[DienThoaiNV] = N'" + nv.DienThoaiNV + @"'
                               ,[DiaChiNV] = N'" + nv.DiaChiNV + @"'
                               ,[EmailNV] = N'" + nv.EmailNV + @"'
-                              ,[NgayVaoLam] = N'" + nv.NgayVaoLam + @"'
+                              ,[NgayVaoLam] = '" + nv.NgayVaoLam + @"'
                               ,[MatKhau] = N'" + nv.MatKhau + @"'
                               ,[QuyenHan] = " + Convert.ToInt16(nv.QuyenHan) + @"
                          WHERE [MaNV]= " + nv.MaNV;
             }
             return (dbcnn.ThucThiSQL(sql));
         }
-
+        /// <summary>
+        /// xóa nhân viên trong csdl
+        /// </summary>
+        /// <param name="id">mã nhân viên</param>
+        /// <returns></returns>
         public bool DeleteNhanVien(int id)
         {
             dbcnn.Connect();
@@ -180,7 +189,11 @@ namespace DAL
             }
             return nv;
         }
-
+        /// <summary>
+        /// lấy ra nhân viên bằng email
+        /// </summary>
+        /// <param name="email">địa chỉ email</param>
+        /// <returns></returns>
         public NhanVien getNhanVienByUsername(string email)
         {
             String sql = @"SELECT [MaNV]
@@ -215,6 +228,11 @@ namespace DAL
             }
             return nv;
         }
+        /// <summary>
+        /// lấy ra nhân viên bằng mã nhân viên
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public NhanVien getNhanVienByID(int id)
         {
             String sql = @"SELECT [MaNV]

@@ -11,5 +11,6 @@ namespace ThuVien
         public static DTO.NhanVien cNhanVien;
         public static LoginForm loginForm;
         public static MainForm mainForm;
+        public static Splass splass;
     }
 }

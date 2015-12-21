@@ -59,9 +59,12 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 disableAllTextField();
             }
         }
+        /// <summary>
+        /// đưa màu các button về mặc định
+        /// </summary>
         private void setDefaultBackColor()
         {
-            // đưa màu các button về mặc định
+            
             btnXoa.BackColor = default(Color);
             btnSua.BackColor = default(Color);
             btnThem.BackColor = default(Color);
@@ -85,6 +88,11 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             if (txtDiaChi.Text.Trim().Length == 0) err += "Địa chỉ không được trống\n";
             return err;
         }
+        /// <summary>
+        /// sự kiện khi bấm nút lưu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             if (checkErr().Length == 0)
@@ -96,29 +104,37 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                     try
                     {
                         DTO.DocGia dgThem = new DTO.DocGia();
-                        dgThem.HoTenDG = txtHoTen.Text.Trim();
-                        dgThem.EmailDG = txtEmail.Text.Trim();
-                        dgThem.DiachiDG = txtDiaChi.Text.Trim();
-                        dgThem.DienthoaiDG = txtDienThoai.Text.Trim();
-                        if (cbbHoatDong.SelectedIndex == 0)
+                        checked
                         {
-                            dgThem.HoatDong = true;
+                            #region đổ sữ liệu vào độc giả thêm
+                            dgThem.HoTenDG = txtHoTen.Text.Trim();
+                            dgThem.EmailDG = txtEmail.Text.Trim();
+                            dgThem.DiachiDG = txtDiaChi.Text.Trim();
+                            dgThem.DienthoaiDG = txtDienThoai.Text.Trim();
+                            #region đổ dữ liệu vào combobox
+
+                            if (cbbHoatDong.SelectedIndex == 0)
+                            {
+                                dgThem.HoatDong = true;
+                            }
+                            else
+                            {
+                                dgThem.HoatDong = false;
+                            }
+                            if (cbbGioiTinh.SelectedIndex == 0)
+                            {
+                                dgThem.GioiTinhDG = true;
+                            }
+                            else
+                            {
+                                dgThem.GioiTinhDG = false;
+                            }
+                            #endregion
+                            dgThem.NgaysinhDG = dateNgaySinh.Value;
+                            dgThem.NgayLamThe = dateNgayLamThe.Value;
+                            dgThem.NgayHetHan = dateNgayHetHan.Value;  
+                            #endregion
                         }
-                        else
-                        {
-                            dgThem.HoatDong = false;
-                        }
-                        if (cbbGioiTinh.SelectedIndex == 0)
-                        {
-                            dgThem.GioiTinhDG = true;
-                        }
-                        else
-                        {
-                            dgThem.GioiTinhDG = false;
-                        }
-                        dgThem.NgaysinhDG = dateNgaySinh.Value;
-                        dgThem.NgayLamThe = dateNgayLamThe.Value;
-                        dgThem.NgayHetHan = dateNgayHetHan.Value;
                         if (docGiaBUS.ThemDocGia(dgThem))
                         {
                             MessageBox.Show("Thêm độc giả thành công!");
@@ -138,11 +154,14 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                     #region Sửa sách
                     //viết hàm sửa
                     DTO.DocGia dgSua = new DTO.DocGia();
+
+                    #region đổ dữ liệu vào dgsua
                     dgSua.HoTenDG = txtHoTen.Text.Trim();
                     dgSua.EmailDG = txtEmail.Text.Trim();
                     dgSua.DiachiDG = txtDiaChi.Text.Trim();
                     dgSua.DienthoaiDG = txtDienThoai.Text.Trim();
-                    if (cbbHoatDong.SelectedIndex==0)
+                    #region đặt selected cho combobox
+                    if (cbbHoatDong.SelectedIndex == 0)
                     {
                         dgSua.HoatDong = true;
                     }
@@ -158,14 +177,21 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                     {
                         dgSua.GioiTinhDG = false;
                     }
+                    #endregion
                     dgSua.NgaysinhDG = dateNgaySinh.Value;
                     dgSua.NgayLamThe = dateNgayLamThe.Value;
                     dgSua.NgayHetHan = dateNgayHetHan.Value;
-                    dgSua.MaDG = DocGiaID;
+                    dgSua.MaDG = DocGiaID; 
+                    #endregion
+                    //sửa độc giả và đưa ra thông báo
                     if (docGiaBUS.suaDocGia(dgSua))
                     {
                         MessageBox.Show("Sửa độc giả thành công!");
                         loadGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa độc giả thất bại!");
                     }
                     #endregion
                 }
@@ -224,7 +250,9 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             cbbHoatDong.SelectedIndex = 0;
             loadGridView();
         }
-
+        /// <summary>
+        /// đổ dữ liệu vào datagridview
+        /// </summary>
         private void loadGridView()
         {
             listDocGia = docGiaBUS.getListDocGia();
@@ -248,7 +276,11 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             grvDanhSach.DataSource = table;
             //this.grvDanhSach.Columns[0].Visible = false;
         }
-
+        /// <summary>
+        /// lấy dữ liệu đổ vào form khi click vào bảng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickCell(object sender, DataGridViewCellEventArgs e)
         {
             if (choose == 2 || choose == 3)
@@ -285,7 +317,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 }
             }
         }
-
+        //cho phép form có thể nhập liệu
         private void enableAllTextField()
         {
             //cho phép các textfield có thể nhập
@@ -312,7 +344,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             dateNgayLamThe.Enabled = false;
             dateNgaySinh.Enabled = false;
         }
-
+        //lọc dữ liệu theo text
         private void locDuLieu(object sender, EventArgs e)
         {
             listDocGia = docGiaBUS.getListDocGia();

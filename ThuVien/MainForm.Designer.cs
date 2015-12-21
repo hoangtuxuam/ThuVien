@@ -118,6 +118,7 @@
             this.lblDoiMK.Size = new System.Drawing.Size(72, 13);
             this.lblDoiMK.TabIndex = 4;
             this.lblDoiMK.Text = "Đổi Mật Khẩu";
+            this.lblDoiMK.Click += new System.EventHandler(this.lblDoiMK_Click);
             // 
             // MainForm
             // 

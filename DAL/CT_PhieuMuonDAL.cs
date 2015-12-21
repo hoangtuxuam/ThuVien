@@ -13,6 +13,10 @@ namespace DAL
     {
         CT_PhieuMuon ctPhieu = new CT_PhieuMuon();
         ConnectDB dbcnn = new ConnectDB();
+        /// <summary>
+        /// lấy danh sách
+        /// </summary>
+        /// <returns></returns>
         public DataTable getTableCT_PhieuMuon()
         {
             String sql = @"SELECT [MaPhieu]
@@ -21,6 +25,10 @@ namespace DAL
                           FROM [dbo].[CT_PhieuMuon]";
             return dbcnn.getdata(sql);
         }
+        /// <summary>
+        /// lấy list chi tiết phiếu mượn
+        /// </summary>
+        /// <returns></returns>
         public List<CT_PhieuMuon> getListCT_PhieuMuon()
         {
             String sql = @"SELECT [MaPhieu]
@@ -44,7 +52,11 @@ namespace DAL
             }
             return listTG;
         }
-
+        /// <summary>
+        /// insert ct_phieumuon vào database
+        /// </summary>
+        /// <param name="ctPhieu"></param>
+        /// <returns></returns>
         public bool insertCT_PhieuMuon(CT_PhieuMuon ctPhieu)
         {
             String sql = @"INSERT INTO [dbo].[CT_PhieuMuon]
@@ -57,7 +69,11 @@ namespace DAL
                                ,'"+ctPhieu.HanTra+"')";
             return dbcnn.ThucThiSQL(sql);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ctPhieu"></param>
+        /// <returns></returns>
         public bool updateCT_PhieuMuon(CT_PhieuMuon ctPhieu)
         {
             String sql = @"UPDATE [dbo].[CT_PhieuMuon]
@@ -67,7 +83,11 @@ namespace DAL
                          WHERE [MaPhieu]=" + ctPhieu.phieuMuon.MaPhieu;
             return dbcnn.ThucThiSQL(sql);
         }
-
+        /// <summary>
+        /// lấy chi tiết phiếu mượn bằng ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public CT_PhieuMuon getCT_PhieuMuonById(int id)
         {
             String sql = @"SELECT [MaPhieu]
@@ -91,7 +111,11 @@ namespace DAL
             return newCT_PhieuMuon;
         }
 
-
+        /// <summary>
+        /// xóa phiếu mượn trong cơ sở dữ liệu
+        /// </summary>
+        /// <param name="ctPhieu"></param>
+        /// <returns></returns>
         public bool deleteCT_PhieuMuon(CT_PhieuMuon ctPhieu)
         {
             String sql = @"DELETE FROM [dbo].[CT_PhieuMuon]

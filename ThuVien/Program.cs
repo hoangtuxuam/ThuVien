@@ -19,7 +19,8 @@ namespace ThuVien
             Application.SetCompatibleTextRenderingDefault(false);
             Session.loginForm = new LoginForm();
             //Application.Run(Session.loginForm);
-            Application.Run(new Splass());
+            Session.splass = new Splass();
+            Application.Run(Session.splass);
         }
     }
 }

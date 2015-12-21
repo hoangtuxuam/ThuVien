@@ -16,16 +16,30 @@ namespace BUS.QuanLyDanhMuc
         {
             nhanVienDAL = new NhanVienDAL();
         }
+        /// <summary>
+        /// lấy ra danh sách nhân viên
+        /// </summary>
+        /// <returns></returns>
         public List<NhanVien> getListNhanVien()
         {
             return nhanVienDAL.getListNhanVien();
         }
+        /// <summary>
+        /// thêm nhân viên
+        /// </summary>
+        /// <param name="nhanVien"></param>
+        /// <returns></returns>
         public bool ThemNhanVien(NhanVien nhanVien)
         {
             nhanVien.MatKhau = mh.EncodeMD5(nhanVien.MatKhau);
             return nhanVienDAL.InsertNhanVien(nhanVien);
 
         }
+        /// <summary>
+        /// update nhân viên
+        /// </summary>
+        /// <param name="nhanVien"></param>
+        /// <returns></returns>
         public bool suaNhanVien(NhanVien nhanVien)
         {
             if (nhanVien.MatKhau.Length != 0)
@@ -34,6 +48,11 @@ namespace BUS.QuanLyDanhMuc
             }
             return nhanVienDAL.updateNhanVien(nhanVien);
         }
+        /// <summary>
+        /// delete nhân viên
+        /// </summary>
+        /// <param name="nhanVien"></param>
+        /// <returns></returns>
         public bool xoaNhanVien(NhanVien nhanVien)
         {
             return nhanVienDAL.deleteNhanVien(nhanVien);
