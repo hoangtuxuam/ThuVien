@@ -59,15 +59,17 @@
             this.txtUsername.Location = new System.Drawing.Point(149, 50);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(143, 20);
-            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(149, 85);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
             // 
             // btnThoat
             // 
@@ -84,7 +86,7 @@
             this.btnDangNhap.Location = new System.Drawing.Point(135, 127);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
-            this.btnDangNhap.TabIndex = 5;
+            this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);

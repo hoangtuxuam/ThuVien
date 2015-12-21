@@ -133,7 +133,7 @@
             this.btnDatLai.Location = new System.Drawing.Point(257, 158);
             this.btnDatLai.Name = "btnDatLai";
             this.btnDatLai.Size = new System.Drawing.Size(93, 33);
-            this.btnDatLai.TabIndex = 15;
+            this.btnDatLai.TabIndex = 6;
             this.btnDatLai.Text = "Đặt lại";
             this.btnDatLai.UseVisualStyleBackColor = true;
             this.btnDatLai.Click += new System.EventHandler(this.btnDatLai_Click);
@@ -179,35 +179,35 @@
             this.txtDiaChi.Location = new System.Drawing.Point(81, 108);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(182, 20);
-            this.txtDiaChi.TabIndex = 9;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // txtWebsite
             // 
             this.txtWebsite.Location = new System.Drawing.Point(400, 108);
             this.txtWebsite.Name = "txtWebsite";
             this.txtWebsite.Size = new System.Drawing.Size(189, 20);
-            this.txtWebsite.TabIndex = 8;
+            this.txtWebsite.TabIndex = 4;
             // 
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(81, 32);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(182, 20);
-            this.txtTen.TabIndex = 7;
+            this.txtTen.TabIndex = 1;
             // 
             // txtDienThoai
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(400, 32);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(189, 20);
-            this.txtDienThoai.TabIndex = 6;
+            this.txtDienThoai.TabIndex = 3;
             // 
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(81, 158);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(93, 33);
-            this.btnLuu.TabIndex = 3;
+            this.btnLuu.TabIndex = 5;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);

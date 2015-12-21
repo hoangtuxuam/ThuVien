@@ -82,6 +82,13 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             else if (!validate.IsNumber(txtDienThoai.Text.Trim())) err += "Số điện thoại phải là số\n";
             if (txtDiaChi.Text.Trim().Length == 0) err += "Địa chỉ không được trống\n";
             if (txtWebsite.Text.Trim().Length == 0) err += "Website không được trống\n";
+            else
+            {
+                if (!validate.IsURL(txtWebsite.Text.Trim()))
+                {
+                    err+= "Website không được trống\n";
+                }
+            }
             return err;
         }
 

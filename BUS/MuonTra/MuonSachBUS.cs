@@ -48,5 +48,14 @@ namespace BUS.MuonTra
             if (!ctPhieuDAL.insertCT_PhieuMuon(ctPhieu)) return false;
             return true;
         }
+
+        public bool conSach(int id)
+        {
+            int TongSoSach = sachDAL.getSachById(id).SoLuong;
+            ThongKeDAL thongke = new ThongKeDAL();
+            int DangChoMuon = thongke.SoSachDangChoMuon(id);
+            if (TongSoSach > DangChoMuon) return true;
+            return false;
+        }
     }
 }

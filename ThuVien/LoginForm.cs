@@ -23,11 +23,17 @@ namespace ThuVien
         {
             if(DialogResult.OK==MessageBox.Show("Bạn có thật sự muốn thoát??", "Thoát!!", MessageBoxButtons.OKCancel))
             {
-                Application.Exit();
+                Environment.Exit(1);
+                //Application.Exit();
             }
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            dangNhap();
+        }
+
+        public void dangNhap()
         {
             //chuỗi lỗi
             String err = "";
@@ -43,14 +49,14 @@ namespace ThuVien
                 if (!val.IsEmail(txtUsername.Text.Trim()))
                     err += "tài khoản phải là email";
             }
-            
+
             if (txtPassword.Text.Trim().Length == 0)
             {
                 //nếu mật khẩu trống thì thêm lỗi vào err
                 err += "Mật khẩu không được trống!";
             }
 
-            if(err.Length==0)
+            if (err.Length == 0)
             {
                 Session.cNhanVien = new DTO.NhanVien();
                 Session.cNhanVien = loginBus.CheckLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
@@ -80,8 +86,14 @@ namespace ThuVien
         {
             if (DialogResult.OK == MessageBox.Show("Bạn có thật sự muốn thoát??", "Thoát!!", MessageBoxButtons.OKCancel))
             {
-                Application.Exit();
+                Environment.Exit(1);
+                //Application.Exit();
             }
+        }
+
+        private void Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) dangNhap();
         }
     }
 }

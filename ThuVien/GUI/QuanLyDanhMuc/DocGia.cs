@@ -374,5 +374,10 @@ namespace ThuVien.GUI.QuanLyDanhMuc
 
             grvDanhSach.DataSource = table;
         }
+
+        private void OnChange(object sender, EventArgs e)
+        {
+            dateNgayHetHan.Value = dateNgayLamThe.Value.AddYears(1);
+        }
     }
 }

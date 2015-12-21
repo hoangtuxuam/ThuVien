@@ -192,8 +192,10 @@ namespace DAL
                 newSach.theLoai.TenTL = (string)table.Rows[0]["TenTL"];
                 newSach.theLoai.GhiChu = table.Rows[0]["GhiChu"].ToString();
                 newSach.TinhTrang = (bool)table.Rows[0]["TinhTrang"];
+                return newSach;
             }
-            return newSach;
+            return null;
+            
         }
 
         public bool deleteSach(Sach sach)

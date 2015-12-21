@@ -56,6 +56,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvDanhSach = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -163,6 +165,7 @@
             this.dateNgayLamThe.Size = new System.Drawing.Size(183, 20);
             this.dateNgayLamThe.TabIndex = 7;
             this.dateNgayLamThe.Value = new System.DateTime(2015, 12, 20, 16, 47, 23, 0);
+            this.dateNgayLamThe.ValueChanged += new System.EventHandler(this.OnChange);
             // 
             // dateNgaySinh
             // 
@@ -323,17 +326,43 @@
             this.grvDanhSach.AllowUserToDeleteRows = false;
             this.grvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvDanhSach.Location = new System.Drawing.Point(13, 266);
+            this.grvDanhSach.Location = new System.Drawing.Point(13, 295);
             this.grvDanhSach.Name = "grvDanhSach";
             this.grvDanhSach.RowHeadersVisible = false;
-            this.grvDanhSach.Size = new System.Drawing.Size(840, 242);
+            this.grvDanhSach.Size = new System.Drawing.Size(840, 213);
             this.grvDanhSach.TabIndex = 3;
             this.grvDanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickCell);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Nam",
+            "Nữ"});
+            this.comboBox1.Location = new System.Drawing.Point(34, 268);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(138, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Có",
+            "Không"});
+            this.comboBox2.Location = new System.Drawing.Point(187, 268);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(138, 21);
+            this.comboBox2.TabIndex = 10;
             // 
             // DocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.grvDanhSach);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -380,5 +409,7 @@
         private System.Windows.Forms.DataGridView grvDanhSach;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTim;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

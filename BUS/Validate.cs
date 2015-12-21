@@ -16,7 +16,7 @@ namespace BUS
         /// <returns></returns>
         public bool IsNumber(string pText)
         {
-            Regex regex = new Regex(@"[0-9]");
+            Regex regex = new Regex(@"^([0-9][0-9]*)$");
             return regex.IsMatch(pText);
         }
         /// <summary>
@@ -28,6 +28,11 @@ namespace BUS
         {
             Regex regex = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
             return regex.IsMatch(pText);
+        }
+        public bool IsURL(string ptext)
+        {
+            Regex regex = new Regex(@"(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?");
+            return regex.IsMatch(ptext);
         }
     }
 }

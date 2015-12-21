@@ -12,5 +12,11 @@ namespace ThuVien
         public static LoginForm loginForm;
         public static MainForm mainForm;
         public static Splass splass;
+        public static void closeAllForm()
+        {
+            //mainForm.Close();
+            loginForm.Close();
+            splass.Close();
+        }
     }
 }

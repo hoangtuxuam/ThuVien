@@ -89,7 +89,7 @@
             this.btnDatlai.Location = new System.Drawing.Point(257, 160);
             this.btnDatlai.Name = "btnDatlai";
             this.btnDatlai.Size = new System.Drawing.Size(105, 35);
-            this.btnDatlai.TabIndex = 12;
+            this.btnDatlai.TabIndex = 5;
             this.btnDatlai.Text = "Đặt lại";
             this.btnDatlai.UseVisualStyleBackColor = true;
             this.btnDatlai.Click += new System.EventHandler(this.btnDatLai_Click);
@@ -108,14 +108,14 @@
             this.txtDienThoai.Location = new System.Drawing.Point(193, 129);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(246, 20);
-            this.txtDienThoai.TabIndex = 10;
+            this.txtDienThoai.TabIndex = 3;
             // 
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(92, 160);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(105, 35);
-            this.btnLuu.TabIndex = 8;
+            this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -125,14 +125,14 @@
             this.txtDiaChi.Location = new System.Drawing.Point(193, 81);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(246, 20);
-            this.txtDiaChi.TabIndex = 7;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(193, 35);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(246, 20);
-            this.txtHoTen.TabIndex = 6;
+            this.txtHoTen.TabIndex = 1;
             // 
             // label2
             // 

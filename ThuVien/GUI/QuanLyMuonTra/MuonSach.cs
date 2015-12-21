@@ -36,13 +36,19 @@ namespace ThuVien.GUI.QuanLyMuonTra
                     masach = 0;
                 }
                 else
+                if(muonSachBUS.conSach(masach))
                 {
                     MessageBox.Show("tìm thấy sách!");
                     lblTenSach.Text = "Tên Sách: " + sach.TenSach;
                     lblGia.Text = "Giá: " + sach.Gia;
                     lblNXB.Text = "NXB: " + sach.nxb.TenNXB;
+                    lblTacGia.Text = "Tác Giả: " + sach.tacGia.HoTenTG;
                     lblTheLoai.Text = "Thể Loại: " + sach.theLoai.TenTL;
-                } 
+                }
+                else
+                {
+                    MessageBox.Show("Sách này đã hết!");
+                }
             }
             else
             {

@@ -97,7 +97,7 @@
             this.cbbQuyenHan.Location = new System.Drawing.Point(415, 93);
             this.cbbQuyenHan.Name = "cbbQuyenHan";
             this.cbbQuyenHan.Size = new System.Drawing.Size(183, 21);
-            this.cbbQuyenHan.TabIndex = 9;
+            this.cbbQuyenHan.TabIndex = 8;
             // 
             // cbbGioiTinh
             // 
@@ -167,7 +167,7 @@
             this.txtPassword.Location = new System.Drawing.Point(415, 128);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(183, 20);
-            this.txtPassword.TabIndex = 12;
+            this.txtPassword.TabIndex = 9;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label1

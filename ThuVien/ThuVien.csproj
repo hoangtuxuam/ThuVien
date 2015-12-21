@@ -180,7 +180,6 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -220,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image\SplassScreen.jpg" />
+    <None Include="Resources\Banner.jpg" />
     <None Include="Resources\SplassScreen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

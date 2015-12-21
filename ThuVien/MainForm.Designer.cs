@@ -38,6 +38,7 @@
             this.lblThoat = new System.Windows.Forms.Label();
             this.lblDoiMK = new System.Windows.Forms.Label();
             this.panelChucNang.SuspendLayout();
+            this.panelBanner.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChucNang
@@ -86,10 +87,13 @@
             // 
             // panelBanner
             // 
+            this.panelBanner.BackgroundImage = global::ThuVien.Properties.Resources.Banner;
             this.panelBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBanner.Controls.Add(this.lblDoiMK);
+            this.panelBanner.Controls.Add(this.lblThoat);
             this.panelBanner.Location = new System.Drawing.Point(139, 12);
             this.panelBanner.Name = "panelBanner";
-            this.panelBanner.Size = new System.Drawing.Size(915, 98);
+            this.panelBanner.Size = new System.Drawing.Size(1033, 98);
             this.panelBanner.TabIndex = 1;
             // 
             // panelMain
@@ -103,7 +107,7 @@
             // lblThoat
             // 
             this.lblThoat.AutoSize = true;
-            this.lblThoat.Location = new System.Drawing.Point(1100, 11);
+            this.lblThoat.Location = new System.Drawing.Point(941, 6);
             this.lblThoat.Name = "lblThoat";
             this.lblThoat.Size = new System.Drawing.Size(58, 13);
             this.lblThoat.TabIndex = 3;
@@ -113,7 +117,7 @@
             // lblDoiMK
             // 
             this.lblDoiMK.AutoSize = true;
-            this.lblDoiMK.Location = new System.Drawing.Point(1100, 37);
+            this.lblDoiMK.Location = new System.Drawing.Point(941, 32);
             this.lblDoiMK.Name = "lblDoiMK";
             this.lblDoiMK.Size = new System.Drawing.Size(72, 13);
             this.lblDoiMK.TabIndex = 4;
@@ -125,8 +129,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
-            this.Controls.Add(this.lblDoiMK);
-            this.Controls.Add(this.lblThoat);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBanner);
             this.Controls.Add(this.panelChucNang);
@@ -140,8 +142,9 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ĐongChuongTrinh);
             this.panelChucNang.ResumeLayout(false);
+            this.panelBanner.ResumeLayout(false);
+            this.panelBanner.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -114,7 +114,7 @@
             this.cbbTacGia.Location = new System.Drawing.Point(426, 87);
             this.cbbTacGia.Name = "cbbTacGia";
             this.cbbTacGia.Size = new System.Drawing.Size(200, 21);
-            this.cbbTacGia.TabIndex = 25;
+            this.cbbTacGia.TabIndex = 8;
             // 
             // cbbNXB
             // 
@@ -122,7 +122,7 @@
             this.cbbNXB.Location = new System.Drawing.Point(426, 55);
             this.cbbNXB.Name = "cbbNXB";
             this.cbbNXB.Size = new System.Drawing.Size(200, 21);
-            this.cbbNXB.TabIndex = 24;
+            this.cbbNXB.TabIndex = 7;
             // 
             // cbbTheLoai
             // 
@@ -130,21 +130,21 @@
             this.cbbTheLoai.Location = new System.Drawing.Point(97, 60);
             this.cbbTheLoai.Name = "cbbTheLoai";
             this.cbbTheLoai.Size = new System.Drawing.Size(187, 21);
-            this.cbbTheLoai.TabIndex = 23;
+            this.cbbTheLoai.TabIndex = 2;
             // 
             // dateNgayNhap
             // 
             this.dateNgayNhap.Location = new System.Drawing.Point(426, 26);
             this.dateNgayNhap.Name = "dateNgayNhap";
             this.dateNgayNhap.Size = new System.Drawing.Size(200, 20);
-            this.dateNgayNhap.TabIndex = 22;
+            this.dateNgayNhap.TabIndex = 6;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(268, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 36);
-            this.button1.TabIndex = 21;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Đặt lại";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -154,7 +154,7 @@
             this.button4.Location = new System.Drawing.Point(97, 192);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(114, 36);
-            this.button4.TabIndex = 3;
+            this.button4.TabIndex = 10;
             this.button4.Text = "Lưu";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -165,35 +165,35 @@
             this.txtNoiDungTT.Multiline = true;
             this.txtNoiDungTT.Name = "txtNoiDungTT";
             this.txtNoiDungTT.Size = new System.Drawing.Size(200, 66);
-            this.txtNoiDungTT.TabIndex = 18;
+            this.txtNoiDungTT.TabIndex = 9;
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(97, 153);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(187, 20);
-            this.txtSoLuong.TabIndex = 14;
+            this.txtSoLuong.TabIndex = 5;
             // 
             // txtGia
             // 
             this.txtGia.Location = new System.Drawing.Point(97, 123);
             this.txtGia.Name = "txtGia";
             this.txtGia.Size = new System.Drawing.Size(187, 20);
-            this.txtGia.TabIndex = 13;
+            this.txtGia.TabIndex = 4;
             // 
             // txtSoTrang
             // 
             this.txtSoTrang.Location = new System.Drawing.Point(97, 92);
             this.txtSoTrang.Name = "txtSoTrang";
             this.txtSoTrang.Size = new System.Drawing.Size(187, 20);
-            this.txtSoTrang.TabIndex = 12;
+            this.txtSoTrang.TabIndex = 3;
             // 
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(97, 31);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(187, 20);
-            this.txtTen.TabIndex = 10;
+            this.txtTen.TabIndex = 1;
             // 
             // label10
             // 

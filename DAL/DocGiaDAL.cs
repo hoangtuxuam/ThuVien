@@ -145,8 +145,10 @@ namespace DAL
                 newdg.NgayLamThe = (DateTime)table.Rows[0]["NgayLamThe"];
                 newdg.NgayHetHan = (DateTime)table.Rows[0]["NgayHetHan"];
                 newdg.HoatDong = (bool)table.Rows[0]["HoatDong"];
+                return newdg;
             }
-            return newdg;
+            return null;
+            
         }
         /// <summary>
         /// xóa độc giả 
