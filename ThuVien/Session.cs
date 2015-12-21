@@ -9,5 +9,7 @@ namespace ThuVien
     static class Session
     {
         public static DTO.NhanVien cNhanVien;
+        public static LoginForm loginForm;
+        public static MainForm mainForm;
     }
 }

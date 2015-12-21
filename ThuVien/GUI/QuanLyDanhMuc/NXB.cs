@@ -35,6 +35,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 1;
+                enableAllTextField();
             }
         }
 
@@ -45,6 +46,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 2;
+                enableAllTextField();
             }
         }
 
@@ -55,6 +57,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 3;
+                disableAllTextField();
             }
         }
         private void setDefaultBackColor()
@@ -66,14 +69,30 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         }
 
         #endregion
+        /// <summary>
+        /// trả về lỗi khi kiểm tra các textbox nhập đúng dữ liệu hay không. trả về chuỗi rỗng nếu không có lỗi
+        /// </summary>
+        /// <returns>Thông báo lỗi</returns>
+        private string checkErr()
+        {
+            BUS.Validate validate = new BUS.Validate();
+            string err = "";
+            if (txtTen.Text.Trim().Length == 0) err += "Tên không được trống\n";
+            if (txtDienThoai.Text.Trim().Length == 0) err += "Số điện thoại không được trống\n";
+            else if (!validate.IsNumber(txtDienThoai.Text.Trim())) err += "Số điện thoại phải là số\n";
+            if (txtDiaChi.Text.Trim().Length == 0) err += "Địa chỉ không được trống\n";
+            if (txtWebsite.Text.Trim().Length == 0) err += "Website không được trống\n";
+            return err;
+        }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (choose == 1)
+            if (checkErr().Length==0)
             {
-
-                try
+                if (choose == 1)
                 {
+
+                    #region thêm nxb
                     DTO.NXB NXBThem = new DTO.NXB();
                     NXBThem.TenNXB = txtTen.Text.Trim();
                     NXBThem.DiaChiNXB = txtDiaChi.Text.Trim();
@@ -84,40 +103,50 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                         MessageBox.Show("Thêm Nhà Xuất Bản thành công!");
                         loadGridView();
                     }
+
+                    //viết hàm thêm
+                    #endregion
                 }
-                catch (Exception ex)
+                else
+                        if (choose == 2)
                 {
-                    MessageBox.Show(ex.Message);
+                    #region sửa nxb
+                    //viết hàm sửa
+                    DTO.NXB NXBSua = new DTO.NXB();
+
+                    NXBSua.MaNXB = NXBID;
+                    NXBSua.TenNXB = txtTen.Text.Trim();
+                    NXBSua.DiaChiNXB = txtDiaChi.Text.Trim();
+                    NXBSua.DienThoaiNXB = txtDienThoai.Text.Trim();
+                    NXBSua.Website = txtWebsite.Text.Trim();
+                    if (theLoaiBUS.suaNXB(NXBSua))
+                    {
+                        MessageBox.Show("Sửa Nhà Xuất Bản thành công!");
+                        loadGridView();
+                    }
+                    #endregion
                 }
-                //viết hàm thêm
+                else if (choose == 3)
+                {
+                    #region xóa nxb
+                    //viết hàm xóa
+                    DTO.NXB NXBXoa = new DTO.NXB();
+                    NXBXoa.MaNXB = NXBID;
+                    if (theLoaiBUS.xoaNXB(NXBXoa))
+                    {
+                        MessageBox.Show("Xóa Nhà Xuất Bản thành công!");
+                        loadGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("xóa nhà xuất bản không thành công!!");
+                    }
+                    #endregion
+                }
             }
             else
-                if (choose == 2)
             {
-                //viết hàm sửa
-                DTO.NXB NXBSua = new DTO.NXB();
-
-                NXBSua.MaNXB = NXBID;
-                NXBSua.TenNXB = txtTen.Text.Trim();
-                NXBSua.DiaChiNXB = txtDiaChi.Text.Trim();
-                NXBSua.DienThoaiNXB = txtDienThoai.Text.Trim();
-                NXBSua.Website = txtWebsite.Text.Trim();
-                if (theLoaiBUS.suaNXB(NXBSua))
-                {
-                    MessageBox.Show("Sửa Nhà Xuất Bản thành công!");
-                    loadGridView();
-                }
-            }
-            else if (choose == 3)
-            {
-                //viết hàm xóa
-                DTO.NXB NXBXoa = new DTO.NXB();
-                NXBXoa.MaNXB = NXBID;
-                if (theLoaiBUS.xoaNXB(NXBXoa))
-                {
-                    MessageBox.Show("Xóa Nhà Xuất Bản thành công!");
-                    loadGridView();
-                }
+                MessageBox.Show(checkErr(), "Lỗi");
             }
         }
         private void loadGridView()
@@ -131,17 +160,36 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             table.Columns.Add("Website");
             foreach (DTO.NXB nxb in listNXB)
             {
-                table.Rows.Add(nxb.MaNXB,nxb.TenNXB, nxb.DiaChiNXB,nxb.DienThoaiNXB,nxb.Website);
+                table.Rows.Add(nxb.MaNXB, nxb.TenNXB, nxb.DiaChiNXB, nxb.DienThoaiNXB, nxb.Website);
             }
             grvDanhSach.DataSource = table;
             grvDanhSach.Columns[0].Visible = false;
         }
         private void resetAllForm()
         {
+            //đưa các textfled về rỗng
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
             txtTen.Text = "";
             txtWebsite.Text = "";
+        }
+
+        private void enableAllTextField()
+        {
+            //cho phép các textfield có thể nhập
+            txtDiaChi.Enabled = true;
+            txtDienThoai.Enabled = true;
+            txtTen.Enabled = true;
+            txtWebsite.Enabled = true;
+        }
+
+        private void disableAllTextField()
+        {
+            //cho phép các textfield không thể nhập
+            txtDiaChi.Enabled = false;
+            txtDienThoai.Enabled = false;
+            txtTen.Enabled = false;
+            txtWebsite.Enabled = false;
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)
@@ -156,7 +204,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         {
             if (choose == 2 || choose == 3)
             {
-                
+
                 try
                 {
                     int row = e.RowIndex;
@@ -170,7 +218,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                             txtDienThoai.Text = nxb.DienThoaiNXB;
                             txtWebsite.Text = nxb.Website;
                             NXBID = nxb.MaNXB;
-                            
+
                         }
                     }
 
@@ -187,5 +235,28 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             loadGridView();
         }
 
+        private void locDuLieu(object sender, EventArgs e)
+        {
+            listNXB = theLoaiBUS.getListNXB();
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã NXB");
+            table.Columns.Add("Tên Nhà Xuất Bản");
+            table.Columns.Add("Địa Chỉ");
+            table.Columns.Add("Số Điện Thoại");
+            table.Columns.Add("Website");
+            IEnumerable<DTO.NXB> lNXB;
+            lNXB = from nv in listNXB
+                  where nv.TenNXB.ToLower().Contains(txtTim.Text.Trim())
+                || nv.DiaChiNXB.ToLower().Contains(txtTim.Text.Trim())
+                || nv.DienThoaiNXB.ToLower().Contains(txtTim.Text.Trim())
+                || nv.Website.ToLower().Contains(txtTim.Text.Trim())
+                                  select nv;
+            foreach (DTO.NXB nxb in lNXB)
+            {
+                table.Rows.Add(nxb.MaNXB, nxb.TenNXB, nxb.DiaChiNXB, nxb.DienThoaiNXB, nxb.Website);
+            }
+            grvDanhSach.DataSource = table;
+            grvDanhSach.Columns[0].Visible = false;
+        }
     }
 }

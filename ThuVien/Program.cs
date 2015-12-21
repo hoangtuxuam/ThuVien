@@ -17,7 +17,9 @@ namespace ThuVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Session.loginForm = new LoginForm();
+            //Application.Run(Session.loginForm);
+            Application.Run(new Splass());
         }
     }
 }

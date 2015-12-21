@@ -22,5 +22,11 @@ namespace BUS.MuonTra
             traDAL.insertTraSach(tra);
             return true;
         }
+        public bool daTra(int maPhieu)
+        {
+            TraSachDAL traDAL = new TraSachDAL();
+            if (traDAL.getTraSachByMaPhieuMuon(maPhieu) == null) return false;
+            return true;
+        }
     }
 }

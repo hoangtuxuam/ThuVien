@@ -34,6 +34,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 1;
+                enableAllTextField();
             }
         }
 
@@ -44,6 +45,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 2;
+                enableAllTextField();
             }
         }
 
@@ -54,6 +56,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 3;
+                disableAllTextField();
             }
         }
         private void setDefaultBackColor()
@@ -178,6 +181,55 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         private void OnLoad(object sender, EventArgs e)
         {
             loadGridView();
+        }
+
+        private void enableAllTextField()
+        {
+            //cho phép các textfield có thể nhập
+            txtDiaChi.Enabled = true;
+            txtDienThoai.Enabled = true;
+            txtHoTen.Enabled = true;
+        }
+
+        private void disableAllTextField()
+        {
+            //cho phép các textfield không thể nhập
+            txtDiaChi.Enabled = false;
+            txtDienThoai.Enabled = false;
+            txtHoTen.Enabled = false;
+        }
+
+        private string checkErr()
+        {
+            BUS.Validate validate = new BUS.Validate();
+            string err = "";
+            if (txtHoTen.Text.Trim().Length == 0) err += "họ tên không được trống\n";
+            if (txtDienThoai.Text.Trim().Length == 0) err += "Số điện thoại không được trống\n";
+            else if (!validate.IsNumber(txtDienThoai.Text.Trim())) err += "Số điện thoại phải là số\n";
+            if (txtDiaChi.Text.Trim().Length == 0) err += "Địa chỉ không được trống\n";
+            return err;
+        }
+
+        private void locDuLieu(object sender, EventArgs e)
+        {
+            listTacGia = tacGiaiBUS.getListtacGia();
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Tác Giả");
+            table.Columns.Add("Họ Tên Tác Giả");
+            table.Columns.Add("Địa Chỉ");
+            table.Columns.Add("Số Điện Thoại");
+            IEnumerable<DTO.TacGia> ltg;
+            ltg = from tg in listTacGia
+                  where tg.HoTenTG.ToLower().Contains(txtTim.Text.Trim())
+                || tg.DiaChiTG.ToLower().Contains(txtTim.Text.Trim())
+                || tg.DienThoaiTG.ToLower().Contains(txtTim.Text.Trim())
+                  select tg;
+            foreach (DTO.TacGia tg in ltg)
+            {
+                table.Rows.Add(tg.MaTG, tg.HoTenTG, tg.DiaChiTG, tg.DienThoaiTG);
+            }
+            grvDanhSach.DataSource = table;
+            grvDanhSach.Columns[0].Visible = false;
         }
     }
 }

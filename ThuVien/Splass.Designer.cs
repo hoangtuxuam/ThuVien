@@ -1,6 +1,6 @@
-﻿namespace ThuVien.GUI.BaoCao
+﻿namespace ThuVien
 {
-    partial class DocGiaa
+    partial class Splass
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.docGia1 = new ThuVien.GUI.BaoCao.DocGia();
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // docGia1
+            // timer1
             // 
-            this.docGia1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.docGia1.Location = new System.Drawing.Point(0, -1);
-            this.docGia1.Name = "docGia1";
-            this.docGia1.Size = new System.Drawing.Size(849, 475);
-            this.docGia1.TabIndex = 0;
+            this.timer1.Tick += new System.EventHandler(this.close);
             // 
-            // DocGiaa
+            // Splass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 473);
-            this.Controls.Add(this.docGia1);
-            this.Name = "DocGiaa";
-            this.Text = "DocGiaa";
+            this.BackgroundImage = global::ThuVien.Properties.Resources.SplassScreen;
+            this.ClientSize = new System.Drawing.Size(600, 390);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Splass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Splass";
+            this.Load += new System.EventHandler(this.load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DocGia docGia1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

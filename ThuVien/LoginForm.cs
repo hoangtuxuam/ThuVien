@@ -47,14 +47,28 @@ namespace ThuVien
                 else
                 {
                     MessageBox.Show("đăng nhập thành công!!");
-                    MainForm main = new MainForm();
-                    main.Show();
+                    Session.mainForm = new MainForm();
+                    Session.mainForm.Show();
                     this.Hide();
                 }
             }
             else
             {
                 MessageBox.Show(err);
+            }
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            txtPassword.Text = "";
+            txtUsername.Text = "";
+        }
+
+        private void DongChuongTrinh(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult.OK == MessageBox.Show("Bạn có thật sự muốn thoát??", "Thoát!!", MessageBoxButtons.OKCancel))
+            {
+                Application.Exit();
             }
         }
     }

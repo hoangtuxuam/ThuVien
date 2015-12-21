@@ -74,12 +74,12 @@ namespace DAL
                                ,[NgayHetHan]
                                ,[HoatDong])
                          VALUES
-                               ('" + dg.HoTenDG + @"'
-                               ,'" + dg.EmailDG + @"'
+                               (N'" + dg.HoTenDG + @"'
+                               ,N'" + dg.EmailDG + @"'
                                ," + Convert.ToInt16(dg.GioiTinhDG) + @"
                                ,'" + dg.NgaysinhDG + @"'
-                               ,'" + dg.DiachiDG + @"'
-                               ,'" + dg.DienthoaiDG + @"'
+                               ,N'" + dg.DiachiDG + @"'
+                               ,N'" + dg.DienthoaiDG + @"'
                                ,'" + dg.NgayHetHan + @"'
                                ,'"+dg.NgayHetHan+@"'
                                ,"+Convert.ToInt16(dg.HoatDong) +")";

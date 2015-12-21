@@ -33,6 +33,8 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.btnDatLai = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +48,7 @@
             this.grvDanhSach = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +94,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.btnDatLai);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
@@ -105,6 +109,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(670, 217);
             this.panel4.TabIndex = 16;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtTim);
+            this.groupBox1.Location = new System.Drawing.Point(477, 164);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(193, 55);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lọc Dữ Liệu";
+            // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(11, 20);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(170, 20);
+            this.txtTim.TabIndex = 14;
+            this.txtTim.TextChanged += new System.EventHandler(this.locDuLieu);
             // 
             // btnDatLai
             // 
@@ -150,7 +172,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Tên NCB";
+            this.label2.Text = "Tên NXB";
             // 
             // txtDiaChi
             // 
@@ -194,10 +216,12 @@
             // 
             this.grvDanhSach.AllowUserToAddRows = false;
             this.grvDanhSach.AllowUserToDeleteRows = false;
+            this.grvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDanhSach.Location = new System.Drawing.Point(10, 237);
             this.grvDanhSach.Name = "grvDanhSach";
             this.grvDanhSach.ReadOnly = true;
+            this.grvDanhSach.RowHeadersVisible = false;
             this.grvDanhSach.Size = new System.Drawing.Size(842, 271);
             this.grvDanhSach.TabIndex = 17;
             this.grvDanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
@@ -215,6 +239,8 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).EndInit();
             this.ResumeLayout(false);
 
@@ -237,5 +263,7 @@
         private System.Windows.Forms.TextBox txtDienThoai;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.DataGridView grvDanhSach;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTim;
     }
 }

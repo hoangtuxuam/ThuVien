@@ -85,7 +85,7 @@ namespace DAL
                 newCT_PhieuMuon.sach.MaSach = (int)table.Rows[0]["MaSach"];
                 SachDAL sachDAL = new SachDAL();
                 newCT_PhieuMuon.sach = sachDAL.getSachById(newCT_PhieuMuon.sach.MaSach);
-                newCT_PhieuMuon.HanTra = (DateTime)table.Rows[0]["DiaChiTG"];
+                //newCT_PhieuMuon.HanTra = (DateTime)table.Rows[0]["DiaChiTG"];
             }
             else return null;
             return newCT_PhieuMuon;

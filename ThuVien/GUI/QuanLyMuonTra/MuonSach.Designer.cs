@@ -160,7 +160,7 @@
             this.btnLayTTDocGia.Name = "btnLayTTDocGia";
             this.btnLayTTDocGia.Size = new System.Drawing.Size(146, 39);
             this.btnLayTTDocGia.TabIndex = 10;
-            this.btnLayTTDocGia.Text = "Lấy Thông Tin Sách";
+            this.btnLayTTDocGia.Text = "Lấy Thông Tin Độc Giả";
             this.btnLayTTDocGia.UseVisualStyleBackColor = true;
             this.btnLayTTDocGia.Click += new System.EventHandler(this.btnLayTTDocGia_Click_1);
             // 
@@ -194,9 +194,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(14, 42);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 13);
+            this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 9;
-            this.label12.Text = "Nhập Độc Giả";
+            this.label12.Text = "Nhập Mã Độc Giả";
             // 
             // lblDiaChi
             // 

@@ -17,6 +17,7 @@ namespace ThuVien.GUI.QuanLyMuonTra
         DTO.DocGia docGia;
         int masach;
         int maDocGia;
+        Validate validate = new BUS.Validate();
         BUS.MuonTra.MuonSachBUS muonSachBUS = new BUS.MuonTra.MuonSachBUS();
         public MuonSach()
         {
@@ -25,36 +26,62 @@ namespace ThuVien.GUI.QuanLyMuonTra
 
         private void btnLayTTSach_Click(object sender, EventArgs e)
         {
-            masach = Convert.ToInt16(txtMasach.Text.Trim());
-            sach = muonSachBUS.layThongTinSach(masach);
-            if (sach == null)
+            if (txtMasach.Text.Trim().Length!=0&&validate.IsNumber(txtMasach.Text.Trim()))
             {
-                MessageBox.Show("mã sách bạn vừa nhập không đúng");
-                masach = 0;
+                masach = Convert.ToInt16(txtMasach.Text.Trim());
+                sach = muonSachBUS.layThongTinSach(masach);
+                if (sach == null)
+                {
+                    MessageBox.Show("mã sách bạn vừa nhập không đúng");
+                    masach = 0;
+                }
+                else
+                {
+                    MessageBox.Show("tìm thấy sách!");
+                    lblTenSach.Text = "Tên Sách: " + sach.TenSach;
+                    lblGia.Text = "Giá: " + sach.Gia;
+                    lblNXB.Text = "NXB: " + sach.nxb.TenNXB;
+                    lblTheLoai.Text = "Thể Loại: " + sach.theLoai.TenTL;
+                } 
             }
             else
             {
-                lblTenSach.Text = "Tên Sách: " + sach.TenSach;
-                lblGia.Text = "Giá: " + sach.Gia;
-                lblNXB.Text = "NXB: " + sach.nxb.TenNXB;
-                lblTheLoai.Text = "Thể Loại: " + sach.theLoai.TenTL;
+                if (txtMasach.Text.Trim().Length == 0) MessageBox.Show("bạn chưa nhập mã sách");
+                else
+                {
+                    MessageBox.Show("Mã sách phải là số!");
+                    txtMasach.Text = "";
+                }
             }
         }
         private void btnLayTTDocGia_Click(object sender, EventArgs e)
         {
-            maDocGia = Convert.ToInt16(txtMaDocGia.Text.Trim());
-            docGia = muonSachBUS.layThongTinDocGia(maDocGia);
-            if (docGia == null)
+            if (txtMaDocGia.Text.Trim().Length != 0 && validate.IsNumber(txtMaDocGia.Text.Trim()))
             {
-                MessageBox.Show("Mã độc giả bạn vừa nhập không đúng");
-                maDocGia = 0;
+                maDocGia = Convert.ToInt16(txtMaDocGia.Text.Trim());
+                docGia = muonSachBUS.layThongTinDocGia(maDocGia);
+                if (docGia == null)
+                {
+                    MessageBox.Show("Mã độc giả bạn vừa nhập không đúng");
+                    maDocGia = 0;
+                }
+                else
+                {
+                    MessageBox.Show("tìm thấy độc giả!");
+                    lblTenDocGia.Text = "Tên Độc Giả: " + docGia.HoTenDG;
+                    lblDiaChi.Text = "Địa Chỉ: " + docGia.DiachiDG;
+                    lblEmail.Text = "Email: " + docGia.EmailDG;
+                    lblDienThoai.Text = "Điện Thoại: " + docGia.DienthoaiDG;
+                } 
             }
             else
             {
-                lblTenDocGia.Text = "Tên Độc Giả: " + docGia.HoTenDG;
-                lblDiaChi.Text = "Địa Chỉ: " + docGia.DiachiDG;
-                lblEmail.Text = "Email: " + docGia.EmailDG;
-                lblDienThoai.Text = "Điện Thoại: " + docGia.DienthoaiDG;
+                if (txtMaDocGia.Text.Trim().Length == 0) MessageBox.Show("bạn chưa nhập mã độc giả");
+                else
+                {
+                    MessageBox.Show("Mã độc giả phải là số!");
+                    txtMaDocGia.Text = "";
+                }
             }
         }
 
@@ -77,19 +104,42 @@ namespace ThuVien.GUI.QuanLyMuonTra
 
         private void btnLayTTDocGia_Click_1(object sender, EventArgs e)
         {
-            maDocGia = Convert.ToInt16(txtMaDocGia.Text.Trim());
-            docGia = muonSachBUS.layThongTinDocGia(maDocGia);
-            if (docGia == null)
+            if (txtMaDocGia.Text.Trim().Length!=0&&validate.IsNumber(txtMaDocGia.Text.Trim()))
             {
-                MessageBox.Show("Mã độc giả bạn vừa nhập không đúng");
-                maDocGia = 0;
+                maDocGia = Convert.ToInt16(txtMaDocGia.Text.Trim());
+                docGia = muonSachBUS.layThongTinDocGia(maDocGia);
+                if (docGia == null)
+                {
+                    MessageBox.Show("Mã độc giả bạn vừa nhập không đúng");
+                    maDocGia = 0;
+                }
+                else
+                {
+                    if (docGia.HoatDong&&DateTime.Compare(docGia.NgayHetHan,DateTime.Now)>0)
+                    {
+                        lblTenDocGia.Text = "Tên Độc Giả: " + docGia.HoTenDG;
+                        lblDiaChi.Text = "Địa Chỉ: " + docGia.DiachiDG;
+                        lblEmail.Text = "Email: " + docGia.EmailDG;
+                        lblDienThoai.Text = "Điện Thoại: " + docGia.DienthoaiDG;
+                    }
+                    else
+                    {
+                        if (!docGia.HoatDong)
+                            MessageBox.Show("Độc Giả không được phép mượn sách");
+                        else MessageBox.Show("Thẻ đã hết hạn");
+                    }
+                }
             }
             else
             {
-                lblTenDocGia.Text = "Tên Độc Giả: " + docGia.HoTenDG;
-                lblDiaChi.Text = "Địa Chỉ: " + docGia.DiachiDG;
-                lblEmail.Text = "Email: " + docGia.EmailDG;
-                lblDienThoai.Text = "Điện Thoại: " + docGia.DienthoaiDG;
+                if (txtMaDocGia.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("mã độc giả không được trống");
+                }
+                else
+                {
+                    MessageBox.Show("mã độc giả phải là số");
+                }
             }
         }
     }

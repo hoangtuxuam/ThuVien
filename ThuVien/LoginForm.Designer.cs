@@ -65,9 +65,9 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(149, 85);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '#';
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnThoat
             // 
@@ -100,8 +100,12 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập Hệ Thống";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DongChuongTrinh);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

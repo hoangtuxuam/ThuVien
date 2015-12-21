@@ -33,7 +33,7 @@ namespace DAL
                 conn = new SqlConnection(strConnect);
                 conn.Open(); // Mo ket noi
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Không thể kết nối tới Cơ Sở Dữ Liệu !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Environment.Exit(0);

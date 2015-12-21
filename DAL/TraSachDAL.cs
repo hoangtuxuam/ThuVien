@@ -39,7 +39,7 @@ namespace DAL
             {
                 TraSach newTraSach = new TraSach();
                 newTraSach.MaPhieu = (int)row["MaPhieu"];
-                newTraSach.phieuMuon.MaPhieu = (int)row["MaPhieu"];
+                newTraSach.phieuMuon.MaPhieu = (int)row["MaPhieuMuon"];
                 PhieuMuonDAL phieuMuonDAL = new PhieuMuonDAL();
                 newTraSach.phieuMuon = phieuMuonDAL.getPhieuMuonById(newTraSach.phieuMuon.MaPhieu);
                 newTraSach.nhanVien.MaNV = (int)row["MaNV"];
@@ -62,8 +62,8 @@ namespace DAL
                                ,[PhatHuHong]
                                ,[PhatQuaHan])
                          VALUES
-                               ("+traSach.MaPhieu+ @"
-                               ," + traSach.MaPhieu + @"
+                               ("+traSach.phieuMuon.MaPhieu+ @"
+                               ," + traSach.nhanVien.MaNV + @"
                                ,'" + traSach.NgayTra + @"'
                                ," + traSach.PhatHuHong + @"
                                ," + traSach.PhatQuaHan + @")";
@@ -95,8 +95,8 @@ namespace DAL
             TraSach newTraSach = new TraSach();
             if (table.Rows.Count == 1)
             {
-                newTraSach.MaPhieu = (int)table.Rows[0]["MaTG"];
-                newTraSach.phieuMuon.MaPhieu = (int)table.Rows[0]["MaPhieu"];
+                newTraSach.MaPhieu = (int)table.Rows[0]["MaPhieu"];
+                newTraSach.phieuMuon.MaPhieu = (int)table.Rows[0]["MaPhieuMuon"];
                 PhieuMuonDAL phieuMuonDAL = new PhieuMuonDAL();
                 newTraSach.phieuMuon = phieuMuonDAL.getPhieuMuonById(newTraSach.phieuMuon.MaPhieu);
                 newTraSach.nhanVien.MaNV = (int)table.Rows[0]["MaNV"];
@@ -106,6 +106,33 @@ namespace DAL
                 newTraSach.PhatHuHong = (int)table.Rows[0]["PhatHuHong"];
                 newTraSach.PhatQuaHan = (int)table.Rows[0]["PhatQuaHan"];
             }
+            return newTraSach;
+        }
+        public TraSach getTraSachByMaPhieuMuon(int maPhieuMuon)
+        {
+            String sql = @"SELECT [MaPhieu]
+                              ,[MaPhieuMuon]
+                              ,[MaNV]
+                              ,[NgayTra]
+                              ,[PhatHuHong]
+                              ,[PhatQuaHan]
+                          FROM [dbo].[TraSach] WHERE [MaPhieuMuon]=" + maPhieuMuon;
+            DataTable table = dbcnn.getdata(sql);
+            TraSach newTraSach = new TraSach();
+            if (table.Rows.Count >0)
+            {
+                newTraSach.MaPhieu = (int)table.Rows[0]["MaPhieu"];
+                newTraSach.phieuMuon.MaPhieu = (int)table.Rows[0]["MaPhieuMuon"];
+                PhieuMuonDAL phieuMuonDAL = new PhieuMuonDAL();
+                newTraSach.phieuMuon = phieuMuonDAL.getPhieuMuonById(newTraSach.phieuMuon.MaPhieu);
+                newTraSach.nhanVien.MaNV = (int)table.Rows[0]["MaNV"];
+                NhanVienDAL nhanVienDAL = new NhanVienDAL();
+                newTraSach.nhanVien = nhanVienDAL.getNhanVienById(newTraSach.nhanVien.MaNV);
+                newTraSach.NgayTra = (DateTime)table.Rows[0]["NgayTra"];
+                newTraSach.PhatHuHong = (int)table.Rows[0]["PhatHuHong"];
+                newTraSach.PhatQuaHan = (int)table.Rows[0]["PhatQuaHan"];
+            }
+            else return null;
             return newTraSach;
         }
         public bool deleteTraSach(TraSach traSach)

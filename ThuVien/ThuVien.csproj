@@ -32,16 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="MaHoa">
-      <HintPath>.\MaHoa.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -90,30 +81,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\BaoCao\BaoCao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\BaoCao\BaoCao.Designer.cs">
-      <DependentUpon>BaoCao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\BaoCao\DocGia.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\BaoCao\DocGia.Designer.cs">
-      <DependentUpon>DocGia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\BaoCao\DocGiaa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\BaoCao\DocGiaa.Designer.cs">
-      <DependentUpon>DocGiaa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\BaoCao\Main.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\BaoCao\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\BaoCao\MainBaoCao.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,12 +104,6 @@
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\NXB.Designer.cs">
       <DependentUpon>NXB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.Designer.cs">
-      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\QuanLyDanhMuc\TheLoai.cs">
       <SubType>UserControl</SubType>
@@ -171,6 +132,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Splass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splass.Designer.cs">
+      <DependentUpon>Splass.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,18 +156,6 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BaoCao\BaoCao.resx">
-      <DependentUpon>BaoCao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BaoCao\DocGia.resx">
-      <DependentUpon>DocGia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BaoCao\DocGiaa.resx">
-      <DependentUpon>DocGiaa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BaoCao\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaoCao\MainBaoCao.resx">
       <DependentUpon>MainBaoCao.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\NXB.resx">
       <DependentUpon>NXB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\QuanLyDanhMuc\QuanLyNhanVien.resx">
-      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyDanhMuc\TheLoai.resx">
       <DependentUpon>TheLoai.cs</DependentUpon>
@@ -237,7 +189,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Splass.resx">
+      <DependentUpon>Splass.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AppConfiguration.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -261,6 +217,10 @@
       <Project>{e9c034b8-28b2-4cfb-a218-5d9706145829}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\SplassScreen.jpg" />
+    <None Include="Resources\SplassScreen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

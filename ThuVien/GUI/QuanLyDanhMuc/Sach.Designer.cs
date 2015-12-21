@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.cbbTacGia = new System.Windows.Forms.ComboBox();
             this.cbbNXB = new System.Windows.Forms.ComboBox();
             this.cbbTheLoai = new System.Windows.Forms.ComboBox();
@@ -55,12 +57,14 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.grvDanhSach = new System.Windows.Forms.DataGridView();
             this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.cbbTacGia);
             this.panel4.Controls.Add(this.cbbNXB);
             this.panel4.Controls.Add(this.cbbTheLoai);
@@ -85,6 +89,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(666, 244);
             this.panel4.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtTim);
+            this.groupBox1.Location = new System.Drawing.Point(473, 190);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(193, 55);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lọc Dữ Liệu";
+            // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(11, 20);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(170, 20);
+            this.txtTim.TabIndex = 14;
+            this.txtTim.TextChanged += new System.EventHandler(this.LocDuLieu);
             // 
             // cbbTacGia
             // 
@@ -302,6 +324,7 @@
             this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDanhSach.Location = new System.Drawing.Point(13, 265);
             this.grvDanhSach.Name = "grvDanhSach";
+            this.grvDanhSach.RowHeadersVisible = false;
             this.grvDanhSach.Size = new System.Drawing.Size(840, 243);
             this.grvDanhSach.TabIndex = 6;
             this.grvDanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickCell);
@@ -319,6 +342,8 @@
             this.Load += new System.EventHandler(this.OnLoad);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).EndInit();
             this.ResumeLayout(false);
@@ -353,5 +378,7 @@
         private System.Windows.Forms.ComboBox cbbTheLoai;
         private System.Windows.Forms.ComboBox cbbTacGia;
         private System.Windows.Forms.ComboBox cbbNXB;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTim;
     }
 }

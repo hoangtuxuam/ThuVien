@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.btnDatlai = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDienThoai = new System.Windows.Forms.TextBox();
@@ -43,12 +45,14 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.grvDanhSach = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.btnDatlai);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtDienThoai);
@@ -61,6 +65,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(662, 215);
             this.panel2.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtTim);
+            this.groupBox1.Location = new System.Drawing.Point(469, 160);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(193, 55);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lọc Dữ Liệu";
+            // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(11, 20);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(170, 20);
+            this.txtTim.TabIndex = 14;
+            this.txtTim.TextChanged += new System.EventHandler(this.locDuLieu);
             // 
             // btnDatlai
             // 
@@ -174,10 +196,12 @@
             // 
             this.grvDanhSach.AllowUserToAddRows = false;
             this.grvDanhSach.AllowUserToDeleteRows = false;
+            this.grvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDanhSach.Location = new System.Drawing.Point(13, 234);
             this.grvDanhSach.Name = "grvDanhSach";
             this.grvDanhSach.ReadOnly = true;
+            this.grvDanhSach.RowHeadersVisible = false;
             this.grvDanhSach.Size = new System.Drawing.Size(840, 274);
             this.grvDanhSach.TabIndex = 5;
             this.grvDanhSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
@@ -194,6 +218,8 @@
             this.Load += new System.EventHandler(this.OnLoad);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).EndInit();
             this.ResumeLayout(false);
@@ -215,5 +241,7 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView grvDanhSach;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTim;
     }
 }

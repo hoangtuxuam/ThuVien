@@ -42,6 +42,7 @@
             this.txtMaPhieu.Name = "txtMaPhieu";
             this.txtMaPhieu.Size = new System.Drawing.Size(142, 20);
             this.txtMaPhieu.TabIndex = 0;
+            this.txtMaPhieu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NhapSo);
             // 
             // label1
             // 

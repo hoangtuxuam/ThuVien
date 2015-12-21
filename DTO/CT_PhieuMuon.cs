@@ -13,6 +13,7 @@ namespace DTO
         public CT_PhieuMuon()
         {
             sach = new Sach();
+            phieuMuon = new PhieuMuon();
         }
 
     }

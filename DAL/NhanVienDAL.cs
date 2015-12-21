@@ -94,8 +94,23 @@ namespace DAL
         }
         public bool updateNhanVien(NhanVien nv)
         {
-
-            String sql = @"UPDATE [dbo].[NhanVien]
+            string sql;
+            if (nv.MatKhau.Length == 0)
+            {
+                sql = @"UPDATE [dbo].[NhanVien]
+                           SET [HoTenNV] = N'" + nv.HoTenNV + @"'
+                              ,[GioiTinhNV] = " + Convert.ToInt16(nv.GioiTinhNV) + @"
+                              ,[NgaySinhNV] = N'" + nv.NgaySinhNV + @"'
+                              ,[DienThoaiNV] = N'" + nv.DienThoaiNV + @"'
+                              ,[DiaChiNV] = N'" + nv.DiaChiNV + @"'
+                              ,[EmailNV] = N'" + nv.EmailNV + @"'
+                              ,[NgayVaoLam] = N'" + nv.NgayVaoLam + @"'
+                              ,[QuyenHan] = " + Convert.ToInt16(nv.QuyenHan) + @"
+                         WHERE [MaNV]= " + nv.MaNV;
+            }
+            else
+            {
+                sql = @"UPDATE [dbo].[NhanVien]
                            SET [HoTenNV] = N'" + nv.HoTenNV + @"'
                               ,[GioiTinhNV] = " + Convert.ToInt16(nv.GioiTinhNV) + @"
                               ,[NgaySinhNV] = N'" + nv.NgaySinhNV + @"'
@@ -104,8 +119,9 @@ namespace DAL
                               ,[EmailNV] = N'" + nv.EmailNV + @"'
                               ,[NgayVaoLam] = N'" + nv.NgayVaoLam + @"'
                               ,[MatKhau] = N'" + nv.MatKhau + @"'
-                              ,[QuyenHan] = "+Convert.ToInt16(nv.QuyenHan)+@"
+                              ,[QuyenHan] = " + Convert.ToInt16(nv.QuyenHan) + @"
                          WHERE [MaNV]= " + nv.MaNV;
+            }
             return (dbcnn.ThucThiSQL(sql));
         }
 

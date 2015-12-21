@@ -43,7 +43,7 @@ namespace ThuVien.GUI.QuanLyMuonTra
                 setDefaultBackColor();
                 btnTra.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 pnlMain.Controls.Clear();
-                pnlMain.Controls.Add(new MuonSach());
+                pnlMain.Controls.Add(new TraSach());
                 choose = 2;
             }
         }

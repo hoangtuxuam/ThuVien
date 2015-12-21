@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelChucNang = new System.Windows.Forms.Panel();
             this.btnBaocao = new System.Windows.Forms.Button();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnQuanLyMuonTra = new System.Windows.Forms.Button();
             this.btnQuanLyDanhMuc = new System.Windows.Forms.Button();
             this.panelBanner = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.lblThoat = new System.Windows.Forms.Label();
+            this.lblDoiMK = new System.Windows.Forms.Label();
             this.panelChucNang.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,6 @@
             // 
             this.panelChucNang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelChucNang.Controls.Add(this.btnBaocao);
-            this.panelChucNang.Controls.Add(this.btnTimKiem);
             this.panelChucNang.Controls.Add(this.btnQuanLyMuonTra);
             this.panelChucNang.Controls.Add(this.btnQuanLyDanhMuc);
             this.panelChucNang.Location = new System.Drawing.Point(13, 13);
@@ -54,24 +54,13 @@
             // btnBaocao
             // 
             this.btnBaocao.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnBaocao.Location = new System.Drawing.Point(10, 340);
+            this.btnBaocao.Location = new System.Drawing.Point(10, 226);
             this.btnBaocao.Name = "btnBaocao";
             this.btnBaocao.Size = new System.Drawing.Size(100, 100);
             this.btnBaocao.TabIndex = 3;
             this.btnBaocao.Text = "BÁO CÁO";
             this.btnBaocao.UseVisualStyleBackColor = false;
             this.btnBaocao.Click += new System.EventHandler(this.btnBaocao_Click);
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimKiem.Location = new System.Drawing.Point(10, 230);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(100, 100);
-            this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "TÌM KIẾM";
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnQuanLyMuonTra
             // 
@@ -100,7 +89,7 @@
             this.panelBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBanner.Location = new System.Drawing.Point(139, 12);
             this.panelBanner.Name = "panelBanner";
-            this.panelBanner.Size = new System.Drawing.Size(1033, 98);
+            this.panelBanner.Size = new System.Drawing.Size(915, 98);
             this.panelBanner.TabIndex = 1;
             // 
             // panelMain
@@ -111,11 +100,32 @@
             this.panelMain.Size = new System.Drawing.Size(1033, 533);
             this.panelMain.TabIndex = 2;
             // 
+            // lblThoat
+            // 
+            this.lblThoat.AutoSize = true;
+            this.lblThoat.Location = new System.Drawing.Point(1100, 11);
+            this.lblThoat.Name = "lblThoat";
+            this.lblThoat.Size = new System.Drawing.Size(58, 13);
+            this.lblThoat.TabIndex = 3;
+            this.lblThoat.Text = "Đăng Xuất";
+            this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
+            // 
+            // lblDoiMK
+            // 
+            this.lblDoiMK.AutoSize = true;
+            this.lblDoiMK.Location = new System.Drawing.Point(1100, 37);
+            this.lblDoiMK.Name = "lblDoiMK";
+            this.lblDoiMK.Size = new System.Drawing.Size(72, 13);
+            this.lblDoiMK.TabIndex = 4;
+            this.lblDoiMK.Text = "Đổi Mật Khẩu";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.Controls.Add(this.lblDoiMK);
+            this.Controls.Add(this.lblThoat);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBanner);
             this.Controls.Add(this.panelChucNang);
@@ -127,8 +137,10 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ĐongChuongTrinh);
             this.panelChucNang.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,9 +150,10 @@
         private System.Windows.Forms.Panel panelBanner;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnBaocao;
-        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnQuanLyMuonTra;
         private System.Windows.Forms.Button btnQuanLyDanhMuc;
+        private System.Windows.Forms.Label lblThoat;
+        private System.Windows.Forms.Label lblDoiMK;
     }
 }
 

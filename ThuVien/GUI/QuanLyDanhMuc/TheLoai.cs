@@ -34,6 +34,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 1;
+                enableAllTextField();
             }
         }
 
@@ -44,6 +45,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 2;
+                enableAllTextField();
             }
         }
 
@@ -54,6 +56,7 @@ namespace ThuVien.GUI.QuanLyDanhMuc
                 setDefaultBackColor();
                 btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 choose = 3;
+                disableAllTextField();
             }
         }
         private void setDefaultBackColor()
@@ -68,52 +71,65 @@ namespace ThuVien.GUI.QuanLyDanhMuc
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (choose == 1)
+            if (checkErr().Length == 0)
             {
-
-                try
+                if (choose == 1)
                 {
-                    DTO.TheLoai TheLoaiThem = new DTO.TheLoai();
-                    TheLoaiThem.TenTL = txtTenTL.Text.Trim();
-                    TheLoaiThem.GhiChu = txtGhiChu.Text.Trim();
-                    if (theLoaiBUS.themTheLoai(TheLoaiThem))
+
+                    #region Thêm
+                    try
                     {
-                        MessageBox.Show("Thêm Thể Loại thành công!");
+                        DTO.TheLoai TheLoaiThem = new DTO.TheLoai();
+                        TheLoaiThem.TenTL = txtTenTL.Text.Trim();
+                        TheLoaiThem.GhiChu = txtGhiChu.Text.Trim();
+                        if (theLoaiBUS.themTheLoai(TheLoaiThem))
+                        {
+                            MessageBox.Show("Thêm Thể Loại thành công!");
+                            loadGridView();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    //viết hàm thêm 
+                    #endregion
+                }
+                else
+                        if (choose == 2)
+                {
+                    #region Sửa
+                    //viết hàm sửa
+                    DTO.TheLoai TheLoaiSua = new DTO.TheLoai();
+
+                    TheLoaiSua.MaTL = TheLoaiID;
+                    TheLoaiSua.TenTL = txtTenTL.Text.Trim();
+                    TheLoaiSua.GhiChu = txtGhiChu.Text.Trim();
+                    TheLoaiSua.MaTL = TheLoaiID;
+                    if (theLoaiBUS.suaTheLoai(TheLoaiSua))
+                    {
+                        MessageBox.Show("Sửa Thể Loại thành công!");
                         loadGridView();
                     }
+                    #endregion
                 }
-                catch (Exception ex)
+                else if (choose == 3)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-                //viết hàm thêm
+                    #region Xóa
+                    //viết hàm xóa
+                    DTO.TheLoai TheLoaiXoa = new DTO.TheLoai();
+                    TheLoaiXoa.MaTL = TheLoaiID;
+                    if (theLoaiBUS.xoaTheLoai(TheLoaiXoa))
+                    {
+                        MessageBox.Show("Xóa Thể Loại thành công!");
+                        loadGridView();
+                    }
+                    #endregion
+                } 
             }
             else
-                if (choose == 2)
             {
-                //viết hàm sửa
-                DTO.TheLoai TheLoaiSua = new DTO.TheLoai();
-                
-                TheLoaiSua.MaTL = TheLoaiID;
-                TheLoaiSua.TenTL = txtTenTL.Text.Trim();
-                TheLoaiSua.GhiChu = txtGhiChu.Text.Trim();
-                TheLoaiSua.MaTL = TheLoaiID;
-                if (theLoaiBUS.suaTheLoai(TheLoaiSua))
-                {
-                    MessageBox.Show("Sửa Thể Loại thành công!");
-                    loadGridView();
-                }
-            }
-            else if (choose == 3)
-            {
-                //viết hàm xóa
-                DTO.TheLoai TheLoaiXoa = new DTO.TheLoai();
-                TheLoaiXoa.MaTL = TheLoaiID;
-                if (theLoaiBUS.xoaTheLoai(TheLoaiXoa))
-                {
-                    MessageBox.Show("Xóa Thể Loại thành công!");
-                    loadGridView();
-                }
+                MessageBox.Show(checkErr(), "Lỗi");
             }
         }
         private void loadGridView()
@@ -174,6 +190,47 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         private void OnLoad(object sender, EventArgs e)
         {
             loadGridView();
+        }
+
+        private void enableAllTextField()
+        {
+            //cho phép các textfield có thể nhập
+            txtTenTL.Enabled = true;
+            txtGhiChu.Enabled = true;
+        }
+
+        private void disableAllTextField()
+        {
+            //cho phép các textfield không thể nhập
+            txtTenTL.Enabled = false;
+            txtGhiChu.Enabled = false;
+        }
+        private string checkErr()
+        {
+            BUS.Validate validate = new BUS.Validate();
+            string err = "";
+            if (txtTenTL.Text.Trim().Length == 0) err += "Tên thể loại không được trống\n";
+            return err;
+        }
+
+        private void locduLieu(object sender, EventArgs e)
+        {
+            listTheLoai = theLoaiBUS.getListTheLoai();
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Thể Loại");
+            table.Columns.Add("Nên Thể Loại");
+            table.Columns.Add("Ghi Chú");
+            IEnumerable<DTO.TheLoai> lnv;
+            lnv = from nv in listTheLoai
+                  where nv.TenTL.ToLower().Contains(txtTim.Text.Trim())
+                || nv.GhiChu.ToLower().Contains(txtTim.Text.Trim())
+                  select nv;
+            foreach (DTO.TheLoai tl in lnv)
+            {
+                table.Rows.Add(tl.MaTL, tl.TenTL, tl.GhiChu);
+            }
+            grvDanhSach.DataSource = table;
+            this.grvDanhSach.Columns[0].Visible = false;
         }
     }
 }
