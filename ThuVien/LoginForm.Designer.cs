@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -58,7 +59,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(149, 50);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(143, 20);
+            this.txtUsername.Size = new System.Drawing.Size(174, 20);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
             // 
@@ -66,7 +67,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(149, 85);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(143, 20);
+            this.txtPassword.Size = new System.Drawing.Size(174, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
@@ -102,6 +103,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

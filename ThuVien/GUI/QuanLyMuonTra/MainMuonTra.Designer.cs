@@ -37,9 +37,10 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMain.Location = new System.Drawing.Point(153, 10);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(866, 511);
+            this.pnlMain.Size = new System.Drawing.Size(888, 511);
             this.pnlMain.TabIndex = 3;
             // 
             // panel1
@@ -53,7 +54,8 @@
             // 
             // btnTra
             // 
-            this.btnTra.Location = new System.Drawing.Point(8, 55);
+            this.btnTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTra.Location = new System.Drawing.Point(8, 75);
             this.btnTra.Name = "btnTra";
             this.btnTra.Size = new System.Drawing.Size(112, 41);
             this.btnTra.TabIndex = 3;
@@ -63,6 +65,7 @@
             // 
             // btnMuon
             // 
+            this.btnMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMuon.Location = new System.Drawing.Point(8, 8);
             this.btnMuon.Name = "btnMuon";
             this.btnMuon.Size = new System.Drawing.Size(112, 41);

@@ -238,16 +238,33 @@ namespace ThuVien.GUI.QuanLyDanhMuc
 
         private void OnLoad(object sender, EventArgs e)
         {
+            //đổ dữ liệu vào giới tính
             cbbGioiTinh.Items.Add(new { Text = "Nam", Value = true });
             cbbGioiTinh.Items.Add(new { Text = "Nữ", Value = false });
             cbbGioiTinh.DisplayMember = "Text";
             cbbGioiTinh.ValueMember = "Value";
+
+            cbbLocGioiTinh.Items.Add(new { Text = "Nam", Value = true });
+            cbbLocGioiTinh.Items.Add(new { Text = "Nữ", Value = false });
+            cbbLocGioiTinh.Items.Insert(0, "--Chọn Giới Tính--");
+            cbbLocGioiTinh.DisplayMember = "Text";
+            cbbLocGioiTinh.ValueMember = "Value";
+            //đổ dữ liệu vào hoạt động
             cbbHoatDong.Items.Add(new { Text = "Có", Value = true });
             cbbHoatDong.Items.Add(new { Text = "Không", Value = false });
             cbbHoatDong.DisplayMember = "Text";
             cbbHoatDong.ValueMember = "Value";
+
+            
+            cbbLocHoatDong.Items.Add(new { Text = "Có", Value = true });
+            cbbLocHoatDong.Items.Add(new { Text = "Không", Value = false });
+            cbbLocHoatDong.DisplayMember = "Text";
+            cbbLocHoatDong.ValueMember = "Value";
+            cbbLocHoatDong.Items.Insert(0, "--Chọn Hoạt Động--");
             cbbGioiTinh.SelectedIndex = 0;
             cbbHoatDong.SelectedIndex = 0;
+            cbbLocGioiTinh.SelectedIndex = 0;
+            cbbLocHoatDong.SelectedIndex = 0;
             loadGridView();
         }
         /// <summary>
@@ -347,7 +364,17 @@ namespace ThuVien.GUI.QuanLyDanhMuc
         //lọc dữ liệu theo text
         private void locDuLieu(object sender, EventArgs e)
         {
-            listDocGia = docGiaBUS.getListDocGia();
+            loc();
+        }
+
+        private void OnChange(object sender, EventArgs e)
+        {
+            dateNgayHetHan.Value = dateNgayLamThe.Value.AddYears(1);
+        }
+
+        private void loc()
+        {
+            //listDocGia = docGiaBUS.getListDocGia();
             DataTable table = new DataTable();
             table.Columns.Add("Mã Độc Giả");
             table.Columns.Add("Họ Tên");
@@ -356,13 +383,44 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             table.Columns.Add("Địa Chỉ");
             table.Columns.Add("Điện Thoại");
             table.Columns.Add("Hoạt Động");
-            IEnumerable<DTO.DocGia> ldg;
-            ldg = from dg in listDocGia
+            IEnumerable<DTO.DocGia> ldg = docGiaBUS.getListDocGia();
+            ldg = from dg in ldg
                   where dg.HoTenDG.ToLower().Contains(txtTim.Text.Trim())
                 || dg.EmailDG.ToLower().Contains(txtTim.Text.Trim())
                 || dg.DiachiDG.ToLower().Contains(txtTim.Text.Trim())
                 || dg.DienthoaiDG.ToLower().Contains(txtTim.Text.Trim())
-                                  select dg;
+                  select dg;
+            if (cbbLocGioiTinh.SelectedIndex == 1)
+            {
+                ldg = from dg in ldg
+                      where dg.GioiTinhDG == true
+                      select dg;
+            }
+            else
+            {
+                if (cbbLocGioiTinh.SelectedIndex == 2)
+                {
+                    ldg = from dg in ldg
+                          where dg.GioiTinhDG ==false
+                          select dg;
+                }
+            }
+            if (cbbLocHoatDong.SelectedIndex == 1)
+            {
+                ldg = from dg in ldg
+                      where dg.HoatDong == true
+                      select dg;
+            }
+            else
+            {
+                if (cbbLocHoatDong.SelectedIndex == 2)
+                {
+                    ldg = from dg in ldg
+                          where dg.HoatDong == false
+                          select dg;
+                }
+            }
+
             foreach (DTO.DocGia dg in ldg)
             {
                 string gioiTinh = "Nam";
@@ -375,9 +433,5 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             grvDanhSach.DataSource = table;
         }
 
-        private void OnChange(object sender, EventArgs e)
-        {
-            dateNgayHetHan.Value = dateNgayLamThe.Value.AddYears(1);
-        }
     }
 }

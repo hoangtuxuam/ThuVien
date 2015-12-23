@@ -48,14 +48,15 @@
             this.panel1.Controls.Add(this.btnTacGia);
             this.panel1.Controls.Add(this.btnTheLoai);
             this.panel1.Controls.Add(this.btnSach);
-            this.panel1.Location = new System.Drawing.Point(9, 7);
+            this.panel1.Location = new System.Drawing.Point(0, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(129, 514);
+            this.panel1.Size = new System.Drawing.Size(138, 514);
             this.panel1.TabIndex = 0;
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.Location = new System.Drawing.Point(7, 246);
+            this.btnNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.Location = new System.Drawing.Point(12, 433);
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.Size = new System.Drawing.Size(112, 41);
             this.btnNhanVien.TabIndex = 5;
@@ -65,7 +66,8 @@
             // 
             // btnDocGia
             // 
-            this.btnDocGia.Location = new System.Drawing.Point(7, 199);
+            this.btnDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDocGia.Location = new System.Drawing.Point(8, 352);
             this.btnDocGia.Name = "btnDocGia";
             this.btnDocGia.Size = new System.Drawing.Size(112, 41);
             this.btnDocGia.TabIndex = 4;
@@ -75,7 +77,8 @@
             // 
             // btnNXB
             // 
-            this.btnNXB.Location = new System.Drawing.Point(7, 152);
+            this.btnNXB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNXB.Location = new System.Drawing.Point(12, 271);
             this.btnNXB.Name = "btnNXB";
             this.btnNXB.Size = new System.Drawing.Size(112, 41);
             this.btnNXB.TabIndex = 3;
@@ -85,7 +88,8 @@
             // 
             // btnTacGia
             // 
-            this.btnTacGia.Location = new System.Drawing.Point(7, 105);
+            this.btnTacGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTacGia.Location = new System.Drawing.Point(12, 190);
             this.btnTacGia.Name = "btnTacGia";
             this.btnTacGia.Size = new System.Drawing.Size(112, 41);
             this.btnTacGia.TabIndex = 2;
@@ -95,7 +99,8 @@
             // 
             // btnTheLoai
             // 
-            this.btnTheLoai.Location = new System.Drawing.Point(7, 58);
+            this.btnTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTheLoai.Location = new System.Drawing.Point(12, 109);
             this.btnTheLoai.Name = "btnTheLoai";
             this.btnTheLoai.Size = new System.Drawing.Size(112, 41);
             this.btnTheLoai.TabIndex = 1;
@@ -105,7 +110,8 @@
             // 
             // btnSach
             // 
-            this.btnSach.Location = new System.Drawing.Point(7, 11);
+            this.btnSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSach.Location = new System.Drawing.Point(12, 28);
             this.btnSach.Name = "btnSach";
             this.btnSach.Size = new System.Drawing.Size(112, 41);
             this.btnSach.TabIndex = 0;

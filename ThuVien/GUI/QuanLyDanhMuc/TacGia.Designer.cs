@@ -61,6 +61,7 @@
             this.panel2.Controls.Add(this.txtHoTen);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(191, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(662, 215);
@@ -69,7 +70,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtTim);
-            this.groupBox1.Location = new System.Drawing.Point(469, 160);
+            this.groupBox1.Location = new System.Drawing.Point(466, 153);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(193, 55);
             this.groupBox1.TabIndex = 16;
@@ -80,12 +81,13 @@
             // 
             this.txtTim.Location = new System.Drawing.Point(11, 20);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(170, 20);
+            this.txtTim.Size = new System.Drawing.Size(170, 21);
             this.txtTim.TabIndex = 14;
             this.txtTim.TextChanged += new System.EventHandler(this.locDuLieu);
             // 
             // btnDatlai
             // 
+            this.btnDatlai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatlai.Location = new System.Drawing.Point(257, 160);
             this.btnDatlai.Name = "btnDatlai";
             this.btnDatlai.Size = new System.Drawing.Size(105, 35);
@@ -99,7 +101,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(103, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 11;
             this.label3.Text = "Điện Thoại";
             // 
@@ -107,11 +109,12 @@
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(193, 129);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(246, 20);
+            this.txtDienThoai.Size = new System.Drawing.Size(246, 21);
             this.txtDienThoai.TabIndex = 3;
             // 
             // btnLuu
             // 
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Location = new System.Drawing.Point(92, 160);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(105, 35);
@@ -122,33 +125,33 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(193, 81);
+            this.txtDiaChi.Location = new System.Drawing.Point(193, 82);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(246, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(246, 21);
             this.txtDiaChi.TabIndex = 2;
             // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(193, 35);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(246, 20);
+            this.txtHoTen.Size = new System.Drawing.Size(246, 21);
             this.txtHoTen.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 88);
+            this.label2.Location = new System.Drawing.Point(120, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Địa Chỉ:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 38);
+            this.label1.Location = new System.Drawing.Point(120, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ Tên:";
             // 
@@ -164,6 +167,7 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Location = new System.Drawing.Point(23, 153);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(121, 49);
@@ -174,6 +178,7 @@
             // 
             // btnSua
             // 
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.Location = new System.Drawing.Point(23, 85);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(121, 49);
@@ -184,6 +189,7 @@
             // 
             // btnThem
             // 
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Location = new System.Drawing.Point(23, 17);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(121, 49);
@@ -197,6 +203,7 @@
             this.grvDanhSach.AllowUserToAddRows = false;
             this.grvDanhSach.AllowUserToDeleteRows = false;
             this.grvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grvDanhSach.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
             this.grvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDanhSach.Location = new System.Drawing.Point(13, 234);
             this.grvDanhSach.Name = "grvDanhSach";
@@ -210,6 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.Controls.Add(this.grvDanhSach);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

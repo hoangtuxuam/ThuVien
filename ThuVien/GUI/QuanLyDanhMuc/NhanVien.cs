@@ -239,6 +239,22 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             cbbQuyenHan.ValueMember = "Value";
             cbbGioiTinh.SelectedIndex = 0;
             cbbQuyenHan.SelectedIndex = 0;
+
+
+
+            cbbLocGioiTinh.Items.Add(new { Text = "Nam", Value = true });
+            cbbLocGioiTinh.Items.Add(new { Text = "Nữ", Value = false });
+            cbbLocGioiTinh.Items.Insert(0, "--Chọn Giới Tính--");
+            cbbLocGioiTinh.DisplayMember = "Text";
+            cbbLocGioiTinh.ValueMember = "Value";
+            cbbLocGioiTinh.SelectedIndex = 0;
+
+            cbbLocQuyenHan.Items.Add(new { Text = "Quản Trị", Value = true });
+            cbbLocQuyenHan.Items.Add(new { Text = "Nhân Viên", Value = false });
+            cbbLocQuyenHan.Items.Insert(0, "--Chọn Quyền Hạn--");
+            cbbLocQuyenHan.DisplayMember = "Text";
+            cbbLocQuyenHan.ValueMember = "Value";
+            cbbLocQuyenHan.SelectedIndex = 0;
             loadGridView();
         }
 
@@ -329,9 +345,8 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             dateNgaySinh.Enabled = false;
         }
 
-        private void textChange(object sender, EventArgs e)
+        private void LocDuLieu(object sender, EventArgs e)
         {
-            listNhanVien = nhanVienBUS.getListNhanVien();
             DataTable table = new DataTable();
             table.Columns.Add("Mã Nhân Viên");
             table.Columns.Add("Họ Tên");
@@ -341,12 +356,38 @@ namespace ThuVien.GUI.QuanLyDanhMuc
             table.Columns.Add("Điện Thoại");
             table.Columns.Add("Ngày Vào Làm");
             table.Columns.Add("Hoạt Động");
-            IEnumerable<DTO.NhanVien> lnv;
-            lnv = from nv in listNhanVien where nv.HoTenNV.ToLower().Contains(txtTim.Text.Trim())
-                  || nv.EmailNV.ToLower().Contains(txtTim.Text.Trim())
-                  || nv.DiaChiNV.ToLower().Contains(txtTim.Text.Trim())
-                  || nv.DienThoaiNV.ToLower().Contains(txtTim.Text.Trim())
+            IEnumerable<DTO.NhanVien> lnv = nhanVienBUS.getListNhanVien();
+            lnv = from nv in lnv
+                  where nv.HoTenNV.ToLower().Contains(txtTim.Text.Trim())
+                || nv.EmailNV.ToLower().Contains(txtTim.Text.Trim())
+                || nv.DiaChiNV.ToLower().Contains(txtTim.Text.Trim())
+                || nv.DienThoaiNV.ToLower().Contains(txtTim.Text.Trim())
                   select nv;
+            if (cbbLocGioiTinh.SelectedIndex == 1)
+            {
+                lnv = from nv in lnv
+                      where nv.GioiTinhNV == true
+                      select nv;
+            }
+            else if(cbbLocGioiTinh.SelectedIndex==2)
+            {
+                lnv = from nv in lnv
+                      where nv.GioiTinhNV == false
+                      select nv;
+            }
+
+            if (cbbLocQuyenHan.SelectedIndex == 1)
+            {
+                lnv = from nv in lnv
+                      where nv.QuyenHan == true
+                      select nv;
+            }
+            else if (cbbLocQuyenHan.SelectedIndex == 2)
+            {
+                lnv = from nv in lnv
+                      where nv.QuyenHan == false
+                      select nv;
+            }
             foreach (DTO.NhanVien nv in lnv)
             {
                 string gioiTinh = "Nam";

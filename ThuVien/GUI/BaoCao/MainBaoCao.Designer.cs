@@ -29,8 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TabPanel = new System.Windows.Forms.TabControl();
+            this.tabDaTra = new System.Windows.Forms.TabPage();
+            this.grvPhieuDaTra = new System.Windows.Forms.DataGridView();
+            this.lblDaTra = new System.Windows.Forms.Label();
+            this.tabChuaTra = new System.Windows.Forms.TabPage();
+            this.grvPhieuChuaTra = new System.Windows.Forms.DataGridView();
             this.txtPhieuMuon = new System.Windows.Forms.Label();
-            this.grvPhieu = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grvSach = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -40,7 +45,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvPhieu)).BeginInit();
+            this.TabPanel.SuspendLayout();
+            this.tabDaTra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhieuDaTra)).BeginInit();
+            this.tabChuaTra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhieuChuaTra)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvSach)).BeginInit();
             this.panel3.SuspendLayout();
@@ -49,33 +58,91 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtPhieuMuon);
-            this.panel1.Controls.Add(this.grvPhieu);
+            this.panel1.Controls.Add(this.TabPanel);
             this.panel1.Location = new System.Drawing.Point(9, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(445, 456);
+            this.panel1.Size = new System.Drawing.Size(445, 467);
             this.panel1.TabIndex = 2;
+            // 
+            // TabPanel
+            // 
+            this.TabPanel.Controls.Add(this.tabDaTra);
+            this.TabPanel.Controls.Add(this.tabChuaTra);
+            this.TabPanel.Location = new System.Drawing.Point(3, 4);
+            this.TabPanel.Name = "TabPanel";
+            this.TabPanel.SelectedIndex = 0;
+            this.TabPanel.Size = new System.Drawing.Size(439, 445);
+            this.TabPanel.TabIndex = 2;
+            // 
+            // tabDaTra
+            // 
+            this.tabDaTra.Controls.Add(this.grvPhieuDaTra);
+            this.tabDaTra.Controls.Add(this.lblDaTra);
+            this.tabDaTra.Location = new System.Drawing.Point(4, 22);
+            this.tabDaTra.Name = "tabDaTra";
+            this.tabDaTra.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDaTra.Size = new System.Drawing.Size(431, 419);
+            this.tabDaTra.TabIndex = 1;
+            this.tabDaTra.Text = "Đã Trả";
+            this.tabDaTra.UseVisualStyleBackColor = true;
+            // 
+            // grvPhieuDaTra
+            // 
+            this.grvPhieuDaTra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grvPhieuDaTra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grvPhieuDaTra.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
+            this.grvPhieuDaTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPhieuDaTra.Location = new System.Drawing.Point(-4, -5);
+            this.grvPhieuDaTra.Name = "grvPhieuDaTra";
+            this.grvPhieuDaTra.RowHeadersVisible = false;
+            this.grvPhieuDaTra.Size = new System.Drawing.Size(433, 402);
+            this.grvPhieuDaTra.TabIndex = 4;
+            // 
+            // lblDaTra
+            // 
+            this.lblDaTra.AutoSize = true;
+            this.lblDaTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDaTra.ForeColor = System.Drawing.Color.Red;
+            this.lblDaTra.Location = new System.Drawing.Point(190, 400);
+            this.lblDaTra.Name = "lblDaTra";
+            this.lblDaTra.Size = new System.Drawing.Size(196, 16);
+            this.lblDaTra.TabIndex = 5;
+            this.lblDaTra.Text = "Có xx Phiếu Mượn Chưa Trả";
+            // 
+            // tabChuaTra
+            // 
+            this.tabChuaTra.Controls.Add(this.grvPhieuChuaTra);
+            this.tabChuaTra.Controls.Add(this.txtPhieuMuon);
+            this.tabChuaTra.Location = new System.Drawing.Point(4, 22);
+            this.tabChuaTra.Name = "tabChuaTra";
+            this.tabChuaTra.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChuaTra.Size = new System.Drawing.Size(431, 419);
+            this.tabChuaTra.TabIndex = 0;
+            this.tabChuaTra.Text = "Chưa Trả";
+            this.tabChuaTra.UseVisualStyleBackColor = true;
+            // 
+            // grvPhieuChuaTra
+            // 
+            this.grvPhieuChuaTra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grvPhieuChuaTra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grvPhieuChuaTra.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
+            this.grvPhieuChuaTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPhieuChuaTra.Location = new System.Drawing.Point(-4, 0);
+            this.grvPhieuChuaTra.Name = "grvPhieuChuaTra";
+            this.grvPhieuChuaTra.RowHeadersVisible = false;
+            this.grvPhieuChuaTra.Size = new System.Drawing.Size(433, 397);
+            this.grvPhieuChuaTra.TabIndex = 2;
             // 
             // txtPhieuMuon
             // 
             this.txtPhieuMuon.AutoSize = true;
+            this.txtPhieuMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhieuMuon.ForeColor = System.Drawing.Color.Red;
-            this.txtPhieuMuon.Location = new System.Drawing.Point(292, 436);
+            this.txtPhieuMuon.Location = new System.Drawing.Point(229, 400);
             this.txtPhieuMuon.Name = "txtPhieuMuon";
-            this.txtPhieuMuon.Size = new System.Drawing.Size(140, 13);
-            this.txtPhieuMuon.TabIndex = 1;
+            this.txtPhieuMuon.Size = new System.Drawing.Size(196, 16);
+            this.txtPhieuMuon.TabIndex = 3;
             this.txtPhieuMuon.Text = "Có xx Phiếu Mượn Chưa Trả";
-            // 
-            // grvPhieu
-            // 
-            this.grvPhieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grvPhieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.grvPhieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvPhieu.Location = new System.Drawing.Point(3, 3);
-            this.grvPhieu.Name = "grvPhieu";
-            this.grvPhieu.RowHeadersVisible = false;
-            this.grvPhieu.Size = new System.Drawing.Size(439, 430);
-            this.grvPhieu.TabIndex = 0;
             // 
             // panel2
             // 
@@ -89,6 +156,7 @@
             // 
             this.grvSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvSach.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grvSach.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
             this.grvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvSach.Location = new System.Drawing.Point(4, 4);
             this.grvSach.Name = "grvSach";
@@ -109,10 +177,11 @@
             // lblsoDocGia
             // 
             this.lblsoDocGia.AutoSize = true;
+            this.lblsoDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsoDocGia.ForeColor = System.Drawing.Color.Red;
-            this.lblsoDocGia.Location = new System.Drawing.Point(65, 436);
+            this.lblsoDocGia.Location = new System.Drawing.Point(3, 436);
             this.lblsoDocGia.Name = "lblsoDocGia";
-            this.lblsoDocGia.Size = new System.Drawing.Size(162, 13);
+            this.lblsoDocGia.Size = new System.Drawing.Size(224, 16);
             this.lblsoDocGia.TabIndex = 2;
             this.lblsoDocGia.Text = "Có xx Độc Giả Đang Mượn Sách";
             // 
@@ -120,6 +189,7 @@
             // 
             this.grvDocGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvDocGia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grvDocGia.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
             this.grvDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDocGia.Location = new System.Drawing.Point(3, 4);
             this.grvDocGia.Name = "grvDocGia";
@@ -175,8 +245,13 @@
             this.Size = new System.Drawing.Size(1033, 533);
             this.Load += new System.EventHandler(this.OnLoad);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvPhieu)).EndInit();
+            this.TabPanel.ResumeLayout(false);
+            this.tabDaTra.ResumeLayout(false);
+            this.tabDaTra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhieuDaTra)).EndInit();
+            this.tabChuaTra.ResumeLayout(false);
+            this.tabChuaTra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhieuChuaTra)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvSach)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -191,13 +266,18 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView grvPhieu;
         private System.Windows.Forms.DataGridView grvSach;
         private System.Windows.Forms.DataGridView grvDocGia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label txtPhieuMuon;
         private System.Windows.Forms.Label lblsoDocGia;
+        private System.Windows.Forms.TabControl TabPanel;
+        private System.Windows.Forms.TabPage tabDaTra;
+        private System.Windows.Forms.TabPage tabChuaTra;
+        private System.Windows.Forms.DataGridView grvPhieuChuaTra;
+        private System.Windows.Forms.Label txtPhieuMuon;
+        private System.Windows.Forms.DataGridView grvPhieuDaTra;
+        private System.Windows.Forms.Label lblDaTra;
     }
 }

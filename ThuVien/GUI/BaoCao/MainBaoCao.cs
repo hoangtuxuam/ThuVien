@@ -21,10 +21,12 @@ namespace ThuVien.GUI.BaoCao
 
         private void OnLoad(object sender, EventArgs e)
         {
-            grvPhieu.DataSource = thongKeBUS.thongKePhieuMuon();
+            grvPhieuChuaTra.DataSource = thongKeBUS.thongKePhieuMuon();
             grvDocGia.DataSource = thongKeBUS.ThongKeDocGiaDangMuon();
             grvSach.DataSource = thongKeBUS.ThongKeSachDangChoMuon();
-            txtPhieuMuon.Text = "Có " + (grvPhieu.RowCount-1) + " phiếu mượn chưa trả";
+            grvPhieuDaTra.DataSource = thongKeBUS.thongKeDaTra();
+            txtPhieuMuon.Text = "Có " + (grvPhieuChuaTra.RowCount-1) + " phiếu mượn chưa trả";
+            lblDaTra.Text = "Có " + (grvPhieuDaTra.RowCount - 1) + " phiếu mượn đã trả";
             lblsoDocGia.Text = "Có " + (grvDocGia.RowCount-1) + " độc giả đang mượn sách";
         }
 
